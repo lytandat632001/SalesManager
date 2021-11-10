@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.TextFlow?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextFlow layoutY="1.0" />
+      <TableView layoutX="6.0" layoutY="89.0" prefHeight="310.0" prefWidth="518.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="STT" />
+          <TableColumn prefWidth="75.0" text="Mã KH" />
+            <TableColumn prefWidth="105.60003662109375" text="Tên Khách Hàng" />
+            <TableColumn prefWidth="72.0" text="SĐT" />
+            <TableColumn prefWidth="48.79998779296875" text="Email" />
+            <TableColumn prefWidth="75.0" text="Địa Chỉ" />
+            <TableColumn prefWidth="75.0" text="Số Nợ" />
+        </columns>
+      </TableView>
+      <Button layoutX="525.0" layoutY="135.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Button layoutX="525.0" layoutY="165.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Button layoutX="525.0" layoutY="285.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Button layoutX="525.0" layoutY="255.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Button layoutX="525.0" layoutY="225.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Button layoutX="525.0" layoutY="195.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Button layoutX="525.0" layoutY="345.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Button layoutX="525.0" layoutY="315.0" mnemonicParsing="false" text="Chi Tiết" />
+      <Label layoutX="208.0" layoutY="39.0" text="Danh Sách Khách Hàng" />
+      <MenuButton mnemonicParsing="false" text="Tài Khoản">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Thêm Tài Khoản" />
+          <MenuItem mnemonicParsing="false" text="Đổi Mật Khẩu" />
+            <MenuItem mnemonicParsing="false" text="Chỉnh Sửa Thông Tin" />
+            <MenuItem mnemonicParsing="false" text="Đăng Xuất" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="96.0" mnemonicParsing="false" text="Khách Hàng">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Danh Sách Khách Hàng" />
+            <MenuItem mnemonicParsing="false" text="Thêm Khách Hàng" />
+            <MenuItem mnemonicParsing="false" text="Chỉnh Sửa Thông Tin" />
+         </items>
+      </MenuButton>
+      <MenuButton layoutX="204.0" mnemonicParsing="false" text="Hàng Hóa">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Danh Sách hàng" />
+            <MenuItem mnemonicParsing="false" text="Thêm Hàng" />
+            <MenuItem mnemonicParsing="false" text="Sửa Hàng Hóa" />
+         </items>
+      </MenuButton>
+      <MenuButton layoutX="300.0" mnemonicParsing="false" text="Nhân Viên ">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Danh Sách Nhân Viên " />
+            <MenuItem mnemonicParsing="false" text="Thêm Nhân Viên" />
+            <MenuItem mnemonicParsing="false" text="Chỉnh sửa Cấp Bậc" />
+            <MenuItem mnemonicParsing="false" text="Chấm Công" />
+         </items>
+      </MenuButton>
+   </children>
+</AnchorPane>
