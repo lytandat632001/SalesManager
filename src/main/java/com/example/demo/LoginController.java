@@ -13,7 +13,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class LoginController{
 
@@ -38,28 +43,47 @@ public class LoginController{
 
         ManageUser UserLogin = new ManageUser();
         if(!(UserTemp.equals("")||PassTemp.equals(""))){
-        if(UserLogin.user.getUserName().equals(UserTemp)
-                &&UserLogin.user.getPassWord().equals(PassTemp)){
+            //Chuyển đăng nhập từ danh sách cố định sang database
+//        if(UserLogin.user.getUserName().equals(UserTemp)
+//                &&UserLogin.user.getPassWord().equals(PassTemp)){
 
-            Login.getScene().getWindow().hide();
-            Stage MenuTemp = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("ListMenu.fxml"));
-            Scene scene = new Scene(root);
-            MenuTemp.setScene(scene);
-            MenuTemp.setResizable(false);
-            MenuTemp.show();
+            try {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                Connection con = DriverManager.getConnection(
+                        "jdbc:sqlserver://localhost;databaseName=salesdb;user=sa;password=Dat123");
+                //JOptionPane.showMessageDialog(null,"Kết nối thành công Database ");
+                PreparedStatement ps = con.prepareStatement("SELECT * FROM [user] WHERE username =? AND password =?");
+                ps.setString(1,UserTemp);
+                ps.setString(2,PassTemp);
+                ResultSet rs = ps.executeQuery();
+                if(rs.next()){
+                    Login.getScene().getWindow().hide();
+                    Stage MenuTemp = new Stage();
+                    Parent root = FXMLLoader.load(getClass().getResource("ListMenu.fxml"));
+                    Scene scene = new Scene(root);
+                    MenuTemp.setScene(scene);
+                    MenuTemp.setResizable(false);
+                    MenuTemp.show();
+                }
+                else
+                {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Đăng nhập không thành công");
+                    alert.setContentText("Tài khoản hoặc mật khẩu không chính xác");
+                    alert.show();
+                }
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+//
 
 
         }
-        else
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Đăng nhập không thành công");
-            alert.setContentText("Tài khoản hoặc mật khẩu không chính xác");
-            alert.show();
-        }
 
-        }
+
+        //}
         else
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
