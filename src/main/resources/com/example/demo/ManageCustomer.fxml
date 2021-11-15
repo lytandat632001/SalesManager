@@ -9,19 +9,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.TextFlow?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CustomerController">
    <children>
       <TextFlow layoutY="1.0" />
-      <TableView layoutX="6.0" layoutY="89.0" prefHeight="310.0" prefWidth="518.0">
+      <TableView fx:id="TableCustomer" layoutX="6.0" layoutY="89.0" prefHeight="310.0" prefWidth="518.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="STT" />
-          <TableColumn prefWidth="75.0" text="Mã KH" />
-            <TableColumn prefWidth="105.60003662109375" text="Tên Khách Hàng" />
-            <TableColumn prefWidth="72.0" text="SĐT" />
-            <TableColumn prefWidth="48.79998779296875" text="Email" />
-            <TableColumn prefWidth="75.0" text="Địa Chỉ" />
-            <TableColumn prefWidth="75.0" text="Số Nợ" />
+          <TableColumn fx:id="IDCustomer" prefWidth="54.0" text="Mã KH" />
+            <TableColumn fx:id="NameCustomer" prefWidth="112.0" text="Tên Khách Hàng" />
+            <TableColumn fx:id="Phone" prefWidth="90.0" text="SĐT" />
+            <TableColumn fx:id="Address" prefWidth="135.0" text="Địa Chỉ" />
+            <TableColumn fx:id="Notes" prefWidth="126.0" text="Ghi chú" />
         </columns>
       </TableView>
       <Button layoutX="525.0" layoutY="135.0" mnemonicParsing="false" text="Chi Tiết" />

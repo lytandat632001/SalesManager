@@ -39,29 +39,7 @@
 0|root||264|view server state|G
 0|root||265|view server state|G</Grants>
     </root>
-    <database id="2" parent="1" name="HOAINAM_DB">
-      <ObjectId>7</ObjectId>
-    </database>
-    <database id="3" parent="1" name="leenam">
-      <ObjectId>5</ObjectId>
-    </database>
-    <database id="4" parent="1" name="master">
-      <ObjectId>1</ObjectId>
-      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
-    </database>
-    <database id="5" parent="1" name="model">
-      <ObjectId>3</ObjectId>
-      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
-    </database>
-    <database id="6" parent="1" name="msdb">
-      <ObjectId>4</ObjectId>
-      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
-    </database>
-    <database id="7" parent="1" name="sad">
-      <ObjectId>6</ObjectId>
-      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
-    </database>
-    <database id="8" parent="1" name="salesdb">
+    <database id="2" parent="1" name="salesdb">
       <ObjectId>8</ObjectId>
       <PermissionsCheckSum>4255254626</PermissionsCheckSum>
       <Grants>8|database||1|connect|G
@@ -72,9 +50,31 @@
       <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
       <Fingerprint>8.44508/A090C982-8816-4BE3-A0A5-A869D930C3C9@BKS10032020\SQLEXPRE</Fingerprint>
     </database>
-    <database id="9" parent="1" name="tempdb">
+    <database id="3" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="4" parent="1" name="tempdb">
       <ObjectId>2</ObjectId>
       <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="5" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="6" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="7" parent="1" name="leenam">
+      <ObjectId>5</ObjectId>
+    </database>
+    <database id="8" parent="1" name="sad">
+      <ObjectId>6</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="9" parent="1" name="HOAINAM_DB">
+      <ObjectId>7</ObjectId>
     </database>
     <login id="10" parent="1" name="sa">
       <ObjectId>1</ObjectId>
@@ -227,163 +227,811 @@
       <Product>SQL Server</Product>
       <DataSource>BKS10032020\SQLEXPRESS</DataSource>
     </linked-server>
-    <schema id="38" parent="8" name="INFORMATION_SCHEMA">
+    <schema id="38" parent="2" name="INFORMATION_SCHEMA">
       <ObjectId>3</ObjectId>
     </schema>
-    <schema id="39" parent="8" name="db_accessadmin">
+    <schema id="39" parent="2" name="db_accessadmin">
       <ObjectId>16385</ObjectId>
     </schema>
-    <schema id="40" parent="8" name="db_backupoperator">
+    <schema id="40" parent="2" name="db_backupoperator">
       <ObjectId>16389</ObjectId>
     </schema>
-    <schema id="41" parent="8" name="db_datareader">
+    <schema id="41" parent="2" name="db_datareader">
       <ObjectId>16390</ObjectId>
     </schema>
-    <schema id="42" parent="8" name="db_datawriter">
+    <schema id="42" parent="2" name="db_datawriter">
       <ObjectId>16391</ObjectId>
     </schema>
-    <schema id="43" parent="8" name="db_ddladmin">
+    <schema id="43" parent="2" name="db_ddladmin">
       <ObjectId>16387</ObjectId>
     </schema>
-    <schema id="44" parent="8" name="db_denydatareader">
+    <schema id="44" parent="2" name="db_denydatareader">
       <ObjectId>16392</ObjectId>
     </schema>
-    <schema id="45" parent="8" name="db_denydatawriter">
+    <schema id="45" parent="2" name="db_denydatawriter">
       <ObjectId>16393</ObjectId>
     </schema>
-    <schema id="46" parent="8" name="db_owner">
+    <schema id="46" parent="2" name="db_owner">
       <ObjectId>16384</ObjectId>
     </schema>
-    <schema id="47" parent="8" name="db_securityadmin">
+    <schema id="47" parent="2" name="db_securityadmin">
       <ObjectId>16386</ObjectId>
     </schema>
-    <schema id="48" parent="8" name="dbo">
+    <schema id="48" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2021-11-10.02:27:54.683</IntrospectionTimestamp>
+      <PermissionsCheckSum>18606943681</PermissionsCheckSum>
+      <Grants>1461580245|||0|execute|G
+1461580245|||2|execute|D
+1477580302|||0|execute|G
+1477580302|||2|execute|D
+1493580359|||0|execute|G
+1493580359|||2|execute|D
+1509580416|||0|execute|G
+1509580416|||2|execute|D
+1525580473|||0|execute|G
+1525580473|||2|execute|D
+1541580530|||0|execute|G
+1541580530|||2|execute|D
+1557580587|||0|execute|G
+1557580587|||2|execute|D</Grants>
+      <IntrospectionTimestamp>2021-11-15.04:19:23.470</IntrospectionTimestamp>
       <Current>1</Current>
+      <DescriptionsCheckSum>4879347648</DescriptionsCheckSum>
     </schema>
-    <schema id="49" parent="8" name="guest">
+    <schema id="49" parent="2" name="guest">
       <ObjectId>2</ObjectId>
     </schema>
-    <schema id="50" parent="8" name="sys">
+    <schema id="50" parent="2" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <role id="51" parent="8" name="public">
+    <role id="51" parent="2" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="52" parent="2" name="datly">
+      <ObjectId>5</ObjectId>
+      <DefaultSchema>dbo</DefaultSchema>
+      <AuthType>instance</AuthType>
+    </role>
+    <role id="53" parent="2" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="54" parent="2" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="55" parent="2" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="56" parent="2" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="57" parent="2" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="58" parent="2" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="59" parent="2" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="60" parent="2" name="db_owner">
+      <ObjectId>16384</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="61" parent="2" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+      <OwnerId>1</OwnerId>
+      <Type>database-role</Type>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="62" parent="2" name="dbo">
+      <ObjectId>1</ObjectId>
+      <DefaultSchema>dbo</DefaultSchema>
+      <AuthType>instance</AuthType>
+    </role>
+    <role id="63" parent="2" name="guest">
+      <ObjectId>2</ObjectId>
+      <DefaultSchema>guest</DefaultSchema>
+      <AuthType>none</AuthType>
+    </role>
+    <role id="64" parent="2" name="public">
       <ObjectId>0</ObjectId>
       <OwnerId>1</OwnerId>
       <Type>database-role</Type>
       <AuthType>none</AuthType>
     </role>
-    <role id="52" parent="8" name="dbo">
-      <ObjectId>1</ObjectId>
-      <DefaultSchema>dbo</DefaultSchema>
-      <AuthType>instance</AuthType>
-    </role>
-    <role id="53" parent="8" name="guest">
-      <ObjectId>2</ObjectId>
-      <DefaultSchema>guest</DefaultSchema>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="54" parent="8" name="INFORMATION_SCHEMA">
-      <ObjectId>3</ObjectId>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="55" parent="8" name="sys">
+    <role id="65" parent="2" name="sys">
       <ObjectId>4</ObjectId>
       <AuthType>none</AuthType>
     </role>
-    <role id="56" parent="8" name="datly">
-      <ObjectId>5</ObjectId>
-      <DefaultSchema>dbo</DefaultSchema>
-      <AuthType>instance</AuthType>
-    </role>
-    <role id="57" parent="8" name="db_owner">
-      <ObjectId>16384</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="58" parent="8" name="db_accessadmin">
-      <ObjectId>16385</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="59" parent="8" name="db_securityadmin">
-      <ObjectId>16386</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="60" parent="8" name="db_ddladmin">
-      <ObjectId>16387</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="61" parent="8" name="db_backupoperator">
-      <ObjectId>16389</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="62" parent="8" name="db_datareader">
-      <ObjectId>16390</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="63" parent="8" name="db_datawriter">
-      <ObjectId>16391</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="64" parent="8" name="db_denydatareader">
-      <ObjectId>16392</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <role id="65" parent="8" name="db_denydatawriter">
-      <ObjectId>16393</ObjectId>
-      <OwnerId>1</OwnerId>
-      <Type>database-role</Type>
-      <AuthType>none</AuthType>
-    </role>
-    <table id="66" parent="48" name="user">
-      <ObjectId>581577110</ObjectId>
-      <CreatedTimestamp>2021-11-10.01:48:56.430</CreatedTimestamp>
-      <ModifiedTimestamp>2021-11-10.01:48:56.440</ModifiedTimestamp>
+    <table id="66" parent="48" name="Goods">
+      <ObjectId>1637580872</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.850</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:57:16.200</ModifiedTimestamp>
     </table>
-    <column id="67" parent="66" name="iduser">
+    <table id="67" parent="48" name="ManageInfo">
+      <ObjectId>1621580815</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:52:43.917</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.917</ModifiedTimestamp>
+    </table>
+    <table id="68" parent="48" name="account">
+      <ObjectId>1813581499</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:44.003</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:44.023</ModifiedTimestamp>
+    </table>
+    <table id="69" parent="48" name="bill">
+      <ObjectId>1365579903</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:32:43.987</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:57:16.200</ModifiedTimestamp>
+    </table>
+    <table id="70" parent="48" name="customer">
+      <ObjectId>1269579561</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:23:47.010</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-14.21:19:10.130</ModifiedTimestamp>
+    </table>
+    <table id="71" parent="48" name="salesdetails">
+      <ObjectId>1861581670</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:57:16.193</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:57:16.210</ModifiedTimestamp>
+    </table>
+    <table id="72" parent="48" name="staff">
+      <ObjectId>1237579447</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:19:46.997</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.920</ModifiedTimestamp>
+    </table>
+    <table id="73" parent="48" name="sysdiagrams">
+      <ObjectId>1413580074</ObjectId>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:55.977</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:55.977</ModifiedTimestamp>
+    </table>
+    <table id="74" parent="48" name="user">
+      <ObjectId>949578421</ObjectId>
+      <CreatedTimestamp>2021-11-12.20:29:43.910</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-15.04:12:37.163</ModifiedTimestamp>
+    </table>
+    <routine id="75" parent="48" name="fn_diagramobjects">
+      <ObjectId>1557580587</ObjectId>
+      <SourceTextLength>1647</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:56.040</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:56.040</ModifiedTimestamp>
+      <RoutineType>scalar-fun</RoutineType>
+    </routine>
+    <routine id="76" parent="48" name="sp_alterdiagram">
+      <ObjectId>1525580473</ObjectId>
+      <SourceTextLength>1501</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:56.030</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:56.030</ModifiedTimestamp>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="77" parent="48" name="sp_creatediagram">
+      <ObjectId>1493580359</ObjectId>
+      <SourceTextLength>1223</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:56.013</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:56.013</ModifiedTimestamp>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="78" parent="48" name="sp_dropdiagram">
+      <ObjectId>1541580530</ObjectId>
+      <SourceTextLength>896</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:56.033</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:56.033</ModifiedTimestamp>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="79" parent="48" name="sp_helpdiagramdefinition">
+      <ObjectId>1477580302</ObjectId>
+      <SourceTextLength>921</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:55.993</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:55.993</ModifiedTimestamp>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="80" parent="48" name="sp_helpdiagrams">
+      <ObjectId>1461580245</ObjectId>
+      <SourceTextLength>658</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:55.990</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:55.990</ModifiedTimestamp>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="81" parent="48" name="sp_renamediagram">
+      <ObjectId>1509580416</ObjectId>
+      <SourceTextLength>1721</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:56.020</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:56.020</ModifiedTimestamp>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <routine id="82" parent="48" name="sp_upgraddiagrams">
+      <ObjectId>1397580017</ObjectId>
+      <SourceTextLength>1463</SourceTextLength>
+      <ExtendedProperties>microsoft_database_tools_support
+1
+int</ExtendedProperties>
+      <CreatedTimestamp>2021-11-13.02:34:55.680</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:55.680</ModifiedTimestamp>
+      <RoutineType>proc</RoutineType>
+    </routine>
+    <column id="83" parent="66" name="idgoods">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="66" name="goodsname">
+      <Position>2</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="66" name="quantity">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="66" name="import">
+      <Position>4</Position>
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="66" name="price">
+      <Position>5</Position>
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="66" name="notes">
+      <Position>6</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+    </column>
+    <column id="89" parent="66" name="iduser">
+      <Position>7</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="90" parent="66" name="PK_Goods">
+      <Position>1</Position>
+      <ColNames>idgoods</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="91" parent="66" name="PK_Goods">
+      <ObjectId>1653580929</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.857</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.857</ModifiedTimestamp>
+      <ColNames>idgoods</ColNames>
+      <UnderlyingIndexName>PK_Goods</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="92" parent="66" name="FK_Goods_user">
+      <ObjectId>1669580986</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.857</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.857</ModifiedTimestamp>
+      <ColNames>iduser</ColNames>
+      <RefTableId>949578421</RefTableId>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>PK_user</RefKeyName>
+      <RefColNames>iduser</RefColNames>
+    </foreign-key>
+    <column id="93" parent="67" name="iduser">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="66" name="username">
+    <column id="94" parent="67" name="idstaff">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="67" name="idcustomer">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <foreign-key id="96" parent="67" name="FK_ManageInfo_staff">
+      <ObjectId>1701581100</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.907</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.907</ModifiedTimestamp>
+      <ColNames>iduser</ColNames>
+      <RefTableId>1237579447</RefTableId>
+      <RefTableName>staff</RefTableName>
+      <RefKeyName>PK_staff</RefKeyName>
+      <RefColNames>idstaff</RefColNames>
+    </foreign-key>
+    <foreign-key id="97" parent="67" name="FK_ManageInfo_user">
+      <ObjectId>1685581043</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.907</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.907</ModifiedTimestamp>
+      <ColNames>iduser</ColNames>
+      <RefTableId>949578421</RefTableId>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>PK_user</RefKeyName>
+      <RefColNames>iduser</RefColNames>
+    </foreign-key>
+    <foreign-key id="98" parent="67" name="FK_ManageInfo_customer">
+      <ObjectId>1717581157</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.910</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.910</ModifiedTimestamp>
+      <ColNames>idstaff</ColNames>
+      <RefTableId>1269579561</RefTableId>
+      <RefTableName>customer</RefTableName>
+      <RefKeyName>PK_customer</RefKeyName>
+      <RefColNames>idcustomer</RefColNames>
+    </foreign-key>
+    <column id="99" parent="68" name="idaccount">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="68" name="fullname">
+      <Position>2</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+    </column>
+    <column id="101" parent="68" name="sex">
+      <Position>3</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="102" parent="68" name="address">
+      <Position>4</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="103" parent="68" name="dateofbirth">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="104" parent="68" name="phonenumber">
+      <Position>6</Position>
+      <DataType>nvarchar(15 char)|0s</DataType>
+    </column>
+    <column id="105" parent="68" name="iduser">
+      <Position>7</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="106" parent="68" name="PK_account">
+      <Position>1</Position>
+      <ColNames>idaccount</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="107" parent="68" name="PK_account">
+      <ObjectId>1829581556</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:44.010</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:44.010</ModifiedTimestamp>
+      <ColNames>idaccount</ColNames>
+      <UnderlyingIndexName>PK_account</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="108" parent="68" name="FK_account_user">
+      <ObjectId>1845581613</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:44.010</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:44.010</ModifiedTimestamp>
+      <ColNames>iduser</ColNames>
+      <RefTableId>949578421</RefTableId>
+      <RefTableName>user</RefTableName>
+      <RefKeyName>PK_user</RefKeyName>
+      <RefColNames>iduser</RefColNames>
+    </foreign-key>
+    <column id="109" parent="69" name="idbill">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="69" name="idstaff">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="69" name="time">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="69" name="idcustomer">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="69" name="total">
+      <Position>5</Position>
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="114" parent="69" name="PK_bill">
+      <Position>1</Position>
+      <ColNames>idbill</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="115" parent="69" name="PK_bill">
+      <ObjectId>1381579960</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:32:43.990</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:32:43.990</ModifiedTimestamp>
+      <ColNames>idbill</ColNames>
+      <UnderlyingIndexName>PK_bill</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="116" parent="69" name="FK_bill_staff">
+      <ObjectId>1733581214</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.920</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.920</ModifiedTimestamp>
+      <ColNames>idstaff</ColNames>
+      <RefTableId>1237579447</RefTableId>
+      <RefTableName>staff</RefTableName>
+      <RefKeyName>PK_staff</RefKeyName>
+      <RefColNames>idstaff</RefColNames>
+    </foreign-key>
+    <foreign-key id="117" parent="69" name="FK_bill_customer">
+      <ObjectId>1749581271</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:55:43.920</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:55:43.920</ModifiedTimestamp>
+      <ColNames>idcustomer</ColNames>
+      <RefTableId>1269579561</RefTableId>
+      <RefTableName>customer</RefTableName>
+      <RefKeyName>PK_customer</RefKeyName>
+      <RefColNames>idcustomer</RefColNames>
+    </foreign-key>
+    <column id="118" parent="70" name="idcustomer">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="70" name="fullname">
+      <Position>2</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+    </column>
+    <column id="120" parent="70" name="sex">
+      <Position>3</Position>
+      <DataType>varchar(10 char)|0s</DataType>
+    </column>
+    <column id="121" parent="70" name="address">
+      <Position>4</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="122" parent="70" name="dateofbirth">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="123" parent="70" name="phonenumber">
+      <Position>6</Position>
+      <DataType>varchar(15 char)|0s</DataType>
+    </column>
+    <column id="124" parent="70" name="Notes">
+      <Position>7</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+    </column>
+    <index id="125" parent="70" name="PK_customer">
+      <Position>1</Position>
+      <ColNames>idcustomer</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="126" parent="70" name="PK_customer">
+      <ObjectId>1285579618</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:23:47.013</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:23:47.013</ModifiedTimestamp>
+      <ColNames>idcustomer</ColNames>
+      <UnderlyingIndexName>PK_customer</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="127" parent="71" name="idgoods">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="128" parent="71" name="idbill">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="129" parent="71" name="quantity">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="71" name="unitprice">
+      <Position>4</Position>
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="131" parent="71" name="discount">
+      <Position>5</Position>
+      <DataType>float|0s</DataType>
+    </column>
+    <column id="132" parent="71" name="amount">
+      <Position>6</Position>
+      <DataType>float|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <foreign-key id="133" parent="71" name="FK_salesdetails_Goods">
+      <ObjectId>1893581784</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:57:16.200</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:57:16.200</ModifiedTimestamp>
+      <ColNames>idgoods</ColNames>
+      <RefTableId>1637580872</RefTableId>
+      <RefTableName>Goods</RefTableName>
+      <RefKeyName>PK_Goods</RefKeyName>
+      <RefColNames>idgoods</RefColNames>
+    </foreign-key>
+    <foreign-key id="134" parent="71" name="FK_salesdetails_bill">
+      <ObjectId>1877581727</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:57:16.200</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:57:16.200</ModifiedTimestamp>
+      <ColNames>idbill</ColNames>
+      <RefTableId>1365579903</RefTableId>
+      <RefTableName>bill</RefTableName>
+      <RefKeyName>PK_bill</RefKeyName>
+      <RefColNames>idbill</RefColNames>
+    </foreign-key>
+    <column id="135" parent="72" name="idstaff">
+      <Position>1</Position>
+      <SequenceIdentity>1</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="136" parent="72" name="fullname">
+      <Position>2</Position>
+      <DataType>nvarchar(30 char)|0s</DataType>
+    </column>
+    <column id="137" parent="72" name="sex">
+      <Position>3</Position>
+      <DataType>nvarchar(10 char)|0s</DataType>
+    </column>
+    <column id="138" parent="72" name="address">
+      <Position>4</Position>
+      <DataType>nvarchar(50 char)|0s</DataType>
+    </column>
+    <column id="139" parent="72" name="dateofbirth">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <column id="140" parent="72" name="phonenumber">
+      <Position>6</Position>
+      <DataType>varchar(15 char)|0s</DataType>
+    </column>
+    <index id="141" parent="72" name="PK_staff">
+      <Position>1</Position>
+      <ColNames>idstaff</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <key id="142" parent="72" name="PK_staff">
+      <ObjectId>1253579504</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:19:47</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:19:47</ModifiedTimestamp>
+      <ColNames>idstaff</ColNames>
+      <UnderlyingIndexName>PK_staff</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="143" parent="73" name="name">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="144" parent="73" name="principal_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="145" parent="73" name="diagram_id">
+      <Position>3</Position>
+      <SequenceIdentity>1(2)</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="146" parent="73" name="version">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="147" parent="73" name="definition">
+      <Position>5</Position>
+      <DataType>varbinary(max)|0s</DataType>
+    </column>
+    <index id="148" parent="73" name="PK__sysdiagr__C2B05B618C79E8AA">
+      <Position>1</Position>
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>diagram_id</ColNames>
+      <Clustering>1</Clustering>
+      <Unique>1</Unique>
+    </index>
+    <index id="149" parent="73" name="UK_principal_name">
+      <Position>2</Position>
+      <ColNames>principal_id
+name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="150" parent="73" name="PK__sysdiagr__C2B05B618C79E8AA">
+      <ObjectId>1429580131</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2021-11-13.02:34:55.980</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:55.980</ModifiedTimestamp>
+      <ColNames>diagram_id</ColNames>
+      <UnderlyingIndexName>PK__sysdiagr__C2B05B618C79E8AA</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="151" parent="73" name="UK_principal_name">
+      <ObjectId>1445580188</ObjectId>
+      <CreatedTimestamp>2021-11-13.02:34:55.980</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-13.02:34:55.980</ModifiedTimestamp>
+      <ColNames>principal_id
+name</ColNames>
+      <UnderlyingIndexName>UK_principal_name</UnderlyingIndexName>
+    </key>
+    <column id="152" parent="74" name="iduser">
+      <Position>1</Position>
+      <SequenceIdentity>1(4)</SequenceIdentity>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="153" parent="74" name="username">
       <Position>2</Position>
       <DataType>nvarchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="69" parent="66" name="password">
+    <column id="154" parent="74" name="password">
       <Position>3</Position>
       <DataType>nvarchar(50 char)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="70" parent="66" name="PK_user">
+    <index id="155" parent="74" name="PK_user">
       <Position>1</Position>
       <ColNames>iduser</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <key id="71" parent="66" name="PK_user">
-      <ObjectId>597577167</ObjectId>
-      <CreatedTimestamp>2021-11-10.01:48:56.433</CreatedTimestamp>
-      <ModifiedTimestamp>2021-11-10.01:48:56.433</ModifiedTimestamp>
+    <index id="156" parent="74" name="unique_username">
+      <Position>4</Position>
+      <ColNames>iduser</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="157" parent="74" name="PK_user">
+      <ObjectId>965578478</ObjectId>
+      <CreatedTimestamp>2021-11-12.20:29:43.920</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-12.20:29:43.920</ModifiedTimestamp>
       <ColNames>iduser</ColNames>
       <UnderlyingIndexName>PK_user</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
+    <key id="158" parent="74" name="unique_username">
+      <ObjectId>18099105</ObjectId>
+      <CreatedTimestamp>2021-11-15.04:12:37.160</CreatedTimestamp>
+      <ModifiedTimestamp>2021-11-15.04:12:37.160</ModifiedTimestamp>
+      <ColNames>iduser</ColNames>
+      <UnderlyingIndexName>unique_username</UnderlyingIndexName>
+    </key>
+    <argument id="159" parent="75">
+      <ArgumentDirection>R</ArgumentDirection>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="160" parent="76" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="161" parent="76" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="162" parent="76" name="@version">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="163" parent="76" name="@definition">
+      <Position>4</Position>
+      <DataType>varbinary(max)|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="164" parent="77" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="165" parent="77" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="166" parent="77" name="@version">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="167" parent="77" name="@definition">
+      <Position>4</Position>
+      <DataType>varbinary(max)|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="168" parent="78" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="169" parent="78" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="170" parent="79" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="171" parent="79" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="172" parent="80" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="173" parent="80" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="174" parent="81" name="@diagramname">
+      <Position>1</Position>
+      <DataType>sysname|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="175" parent="81" name="@owner_id">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
+    <argument id="176" parent="81" name="@new_diagramname">
+      <Position>3</Position>
+      <DataType>sysname|0s</DataType>
+      <Defaulted>1</Defaulted>
+    </argument>
   </database-model>
 </dataSource>
