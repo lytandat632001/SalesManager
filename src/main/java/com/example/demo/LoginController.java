@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,16 +37,13 @@ public class LoginController{
     private TextField PassWord;
     @FXML
     private CheckBox Remember;
-
     @FXML
+    public User UserLogin = new User();
     public void ActionLogin(ActionEvent event )throws IOException {
-        String UserTemp = UserName.getText();
-        String PassTemp = PassWord.getText();
 
-        ManageUser UserLogin = new ManageUser();
-        if(!(UserTemp.equals("")||PassTemp.equals(""))){
+        if(!(UserName.getText().equals("")||PassWord.getText().equals(""))){
             //Chuyển đăng nhập từ danh sách cố định sang database
-//        if(UserLogin.user.getUserName().equals(UserTemp)
+//        if(UserLogin.user.getUserName().equals(Username.getText())
 //                &&UserLogin.user.getPassWord().equals(PassTemp)){
 
             try {
@@ -53,10 +52,13 @@ public class LoginController{
                         "jdbc:sqlserver://localhost;databaseName=salesdb;user=sa;password=Dat123");
                 //JOptionPane.showMessageDialog(null,"Kết nối thành công Database ");
                 PreparedStatement ps = con.prepareStatement("SELECT * FROM [user] WHERE username =? AND password =?");
-                ps.setString(1,UserTemp);
-                ps.setString(2,PassTemp);
+                ps.setString(1,UserName.getText());
+                ps.setString(2, PassWord.getText());
                 ResultSet rs = ps.executeQuery();
                 if(rs.next()){
+                    UserLogin.setId(rs.getInt("iduser"));
+                    UserLogin.setUserName(rs.getString("username"));
+                    UserLogin.setPassWord(rs.getString("password"));
                     Login.getScene().getWindow().hide();
                     Stage MenuTemp = new Stage();
                     Parent root = FXMLLoader.load(getClass().getResource("ListMenu.fxml"));
