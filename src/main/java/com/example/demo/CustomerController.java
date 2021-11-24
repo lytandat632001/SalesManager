@@ -13,7 +13,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class CustomerController  implements Initializable {
+public class    CustomerController  implements Initializable {
     @FXML
     private TableView<Customer> TableCustomer;
     @FXML
@@ -28,14 +28,15 @@ public class CustomerController  implements Initializable {
     private TableColumn<Customer,String> Notes;
     private ObservableList<Customer>CustomerList = FXCollections.observableArrayList();
 
-
+    public User user = new User();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con = DriverManager.getConnection(
                     "jdbc:sqlserver://localhost;databaseName=salesdb;user=sa;password=Dat123");
-            PreparedStatement ps = con.prepareStatement("SELECT idcustomer,fullname,phonenumber,address,Notes FROM [customer]");
+            PreparedStatement ps = con.prepareStatement("SELECT idcustomer,fullname,phonenumber,address,Notes FROM [customer] Where iduser=1");
+
             ResultSet rs =ps.executeQuery();
             while (rs.next()){
                 CustomerList.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
