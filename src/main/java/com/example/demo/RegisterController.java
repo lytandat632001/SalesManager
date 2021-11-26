@@ -11,7 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.sql.*;
 
 public class RegisterController {
 
@@ -41,20 +43,40 @@ public class RegisterController {
 
     @FXML
     void ActionRegisterMore(ActionEvent event) throws IOException{
-    String UserTemp = UserRegister.getText();
-    String PassTemp = PassRegister.getText();
-    String PassTempAgain = PassRegisterAgain.getText();
-    ManageUser CurrentUser=new ManageUser();
-    ManageUser CreateUser = new ManageUser();
-    if(!(UserTemp.equals("") || PassTemp.equals("") || PassTempAgain.equals(""))){
-        if(PassTemp.equals(PassTempAgain)){
-            RegisterMore.getScene().getWindow().hide();
-            Stage Login = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-            Scene scene = new Scene(root);
-            Login.setResizable(false);
-            Login.setScene(scene);
-            Login.show();
+    User CurrentUser=new User();
+    User CreateUser = new User();
+    if(!(UserRegister.getText().equals("") || PassRegister.getText().equals("") || PassRegisterAgain.getText().equals(""))){
+        if(PassRegister.getText().equals(PassRegisterAgain.getText())){
+
+            try {
+                Connection con = ConnectSQL.ConnectDb(); // ket noi database
+                PreparedStatement psUser = con.prepareStatement("SELECT * FROM [user] WHERE username =? AND password =?");
+                psUser.setString(1,UserRegister.getText());
+                psUser.setString(2, PassRegister.getText());
+                ResultSet rsUser = psUser.executeQuery();
+                if (!rsUser.next()){
+                            PreparedStatement ps = con.prepareStatement("Insert Into [user](username,password) VALUES (?,?)");
+                            ps.setString(1,UserRegister.getText());
+                            ps.setString(2,PassRegister.getText());
+                            ps.executeUpdate();
+                            RegisterMore.getScene().getWindow().hide();
+                    Stage Login = new Stage();
+                    Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                    Scene scene = new Scene(root);
+                    Login.setResizable(false);
+                    Login.setScene(scene);
+                    Login.show();
+                }
+                else{
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Đăng kí không thành công!");
+                    alert.setContentText("Tài khoản đã tồn tại");
+                    alert.show();
+                }
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+
         }
         else
         {

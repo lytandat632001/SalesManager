@@ -21,26 +21,28 @@ public class    CustomerController  implements Initializable {
     @FXML
     private TableColumn<Customer,String> NameCustomer;
     @FXML
-    private TableColumn<Customer,String> Phone;
+    private TableColumn<Customer,String> SexCustomer;
     @FXML
     private TableColumn<Customer,String> Address;
     @FXML
-    private TableColumn<Customer,String> Notes;
+    private TableColumn<Customer,Date> DateOfBirth;
+    @FXML
+    private TableColumn<Customer,String> Phone;
+    @FXML
+    private TableColumn<Customer,Date> CreationDate;
     private ObservableList<Customer>CustomerList = FXCollections.observableArrayList();
-
     public User user = new User();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:sqlserver://localhost;databaseName=salesdb;user=sa;password=Dat123");
-            PreparedStatement ps = con.prepareStatement("SELECT idcustomer,fullname,phonenumber,address,Notes FROM [customer] Where iduser=1");
-
+            Connection con = ConnectSQL.ConnectDb(); // ket noi database
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM [customer] Where iduser=?");
+            ps.setInt(1,LoginController.UserLogin.getId());
             ResultSet rs =ps.executeQuery();
             while (rs.next()){
                 CustomerList.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
-                        rs.getString("phonenumber"),rs.getString("address"),rs.getString("Notes")));
+                        rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
+                        rs.getString("phonenumber"),rs.getDate("creationdate")));
             }
         }catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -48,10 +50,11 @@ public class    CustomerController  implements Initializable {
         }
                     IDCustomer.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("ID"));
                     NameCustomer.setCellValueFactory(new PropertyValueFactory<Customer,String>("FullName"));
-                    Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
+                    SexCustomer.setCellValueFactory(new PropertyValueFactory<Customer,String>("Sex"));
                     Address.setCellValueFactory(new PropertyValueFactory<Customer,String>("address"));
-                    Notes.setCellValueFactory(new PropertyValueFactory<Customer,String>("Note"));
+                    DateOfBirth.setCellValueFactory(new PropertyValueFactory<Customer,Date>("DateOfBirth"));
+                    Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
+                    CreationDate.setCellValueFactory(new PropertyValueFactory<Customer,Date>("CreationDate"));
                     TableCustomer.setItems(CustomerList);
-
     }
 }

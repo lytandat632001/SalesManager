@@ -5,28 +5,20 @@ import java.sql.Date;
 public class Customer {
     private int ID;
     private String FullName;
-    private String PhoneNumber;
     private String Sex;
     private String address;
     private Date DateOfBirth;
-    private String Note;
+    private String PhoneNumber;
+    private Date CreationDate;
 
-    public Customer(int ID, String fullName, String phoneNumber, String sex, String address, Date dateOfBirth, String note) {
+    public Customer(int ID, String fullName, String sex, String address, Date dateOfBirth, String phoneNumber, Date creationDate) {
         this.ID = ID;
         FullName = fullName;
-        PhoneNumber = phoneNumber;
         Sex = sex;
         this.address = address;
         DateOfBirth = dateOfBirth;
-        Note = note;
-    }
-
-    public Customer(int ID, String fullName, String phoneNumber, String address, String note) {
-        this.ID = ID;
-        FullName = fullName;
         PhoneNumber = phoneNumber;
-        this.address = address;
-        Note = note;
+        CreationDate = creationDate;
     }
 
     public Customer(){
@@ -80,11 +72,11 @@ public class Customer {
         PhoneNumber = phoneNumber;
     }
 
-    public String getNote() {
-        return Note;
+    public Date getCreationDate() {
+        return CreationDate;
     }
 
-    public void setNote(String note) {
-        Note = note;
+    public void setCreationDate(Date creationDate) {
+        CreationDate = creationDate;
     }
 }
