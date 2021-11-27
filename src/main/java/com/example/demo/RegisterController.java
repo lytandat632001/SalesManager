@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -26,9 +27,9 @@ public class RegisterController {
     @FXML
     private TextField UserRegister;
     @FXML
-    private TextField PassRegister;
+    private PasswordField PassRegister;
     @FXML
-    private TextField PassRegisterAgain;
+    private PasswordField PassRegisterAgain;
 
     @FXML
     void ActionBackLogin(ActionEvent event) throws IOException {

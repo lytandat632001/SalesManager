@@ -1,24 +1,16 @@
 package com.example.demo;
 
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 public class LoginController{
@@ -27,13 +19,13 @@ public class LoginController{
     private Button Login;
 
     @FXML
-    private Button Register;
+    private Button SignUp;
 
     @FXML
     private TextField UserName;
 
     @FXML
-    private TextField PassWord;
+    private PasswordField PassWord;
     @FXML
     private CheckBox Remember;
     @FXML
@@ -90,7 +82,7 @@ public class LoginController{
 
     @FXML
     public void ActionRegister (ActionEvent event) throws IOException {
-        Register.getScene().getWindow().hide();
+        SignUp.getScene().getWindow().hide();
         Stage Resigter = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
         Scene scene = new Scene(root);

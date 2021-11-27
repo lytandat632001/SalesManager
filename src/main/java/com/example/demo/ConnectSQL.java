@@ -10,7 +10,7 @@ public class ConnectSQL {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:sqlserver://localhost;databaseName=salesdb;user=sa;password=Dat123");
+                    "jdbc:sqlserver://localhost;databaseName=salesdb;user=sa;password=111111");
             //JOptionPane.showMessageDialog(null,"Kết nối thành công Database ");
             return con;
         } catch (Exception e) {
