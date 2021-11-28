@@ -33,9 +33,9 @@
       </MenuButton>
       <MenuButton layoutX="96.0" mnemonicParsing="false" text="Khách Hàng">
          <items>
-            <MenuItem mnemonicParsing="false" text="Danh Sách Khách Hàng" />
-            <MenuItem mnemonicParsing="false" text="Thêm Khách Hàng" />
-            <MenuItem mnemonicParsing="false" text="Chỉnh Sửa Thông Tin" />
+            <MenuItem fx:id="AddCustomer" mnemonicParsing="false" text="Thêm Khách Hàng" />
+            <MenuItem fx:id="EditCustomer" mnemonicParsing="false" text="Chỉnh Sửa Thông Tin" />
+            <MenuItem fx:id="RemoveCustomer" mnemonicParsing="false" text="Xoá Khách Hàng" />
          </items>
       </MenuButton>
       <MenuButton layoutX="204.0" mnemonicParsing="false" text="Hàng Hóa">

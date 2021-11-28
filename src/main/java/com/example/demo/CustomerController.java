@@ -1,19 +1,34 @@
 package com.example.demo;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
 public class    CustomerController  implements Initializable {
+    @FXML
+    private MenuItem AddCustomer;
+    @FXML
+    private MenuItem EditCustomer;
+    @FXML
+    private MenuItem RemoveCustomer;
     @FXML
     private TableView<Customer> TableCustomer;
     @FXML
@@ -32,10 +47,11 @@ public class    CustomerController  implements Initializable {
     private TableColumn<Customer,Date> CreationDate;
     private ObservableList<Customer>CustomerList = FXCollections.observableArrayList();
     public User user = new User();
+    Connection con = ConnectSQL.ConnectDb();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            Connection con = ConnectSQL.ConnectDb(); // ket noi database
+             // ket noi database
             PreparedStatement ps = con.prepareStatement("SELECT * FROM [customer] Where iduser=?");
             ps.setInt(1,LoginController.UserLogin.getId());
             ResultSet rs =ps.executeQuery();
@@ -56,5 +72,55 @@ public class    CustomerController  implements Initializable {
                     Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
                     CreationDate.setCellValueFactory(new PropertyValueFactory<Customer,Date>("CreationDate"));
                     TableCustomer.setItems(CustomerList);
+        AddCustomer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Stage ChangeCustomer = new Stage();
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("ChangeCustomer.fxml"));
+                    Scene scene = new Scene(root);
+                    ChangeCustomer.setResizable(false);
+                    ChangeCustomer.setScene(scene);
+                    ChangeCustomer.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+        EditCustomer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Stage ChangeCustomer = new Stage();
+                try {
+
+                    Parent root = FXMLLoader.load(getClass().getResource("ChangeCustomer.fxml"));
+                    Scene scene = new Scene(root);
+                    ChangeCustomer.setResizable(false);
+                    ChangeCustomer.setScene(scene);
+                    ChangeCustomer.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+        RemoveCustomer.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Customer CustomerRemove = TableCustomer.getSelectionModel().getSelectedItem();
+                TableCustomer.getItems().remove(CustomerRemove);
+
+                try {
+                    PreparedStatement ps = con.prepareStatement("DELETE FROM [customer] WHERE idcustomer =?" );
+                    ps.setInt(1,CustomerRemove.getID());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 }
