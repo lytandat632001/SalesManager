@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
@@ -75,8 +76,9 @@ public class    CustomerController  implements Initializable {
         AddCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Stage ChangeCustomer = new Stage();
+
                 try {
+                    Stage ChangeCustomer = new Stage();
                     Parent root = FXMLLoader.load(getClass().getResource("ChangeCustomer.fxml"));
                     Scene scene = new Scene(root);
                     ChangeCustomer.setResizable(false);
@@ -89,17 +91,21 @@ public class    CustomerController  implements Initializable {
 
             }
         });
-        EditCustomer.setOnAction(new EventHandler<ActionEvent>() {
+        EditCustomer.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event) {
-                Stage ChangeCustomer = new Stage();
-                try {
 
-                    Parent root = FXMLLoader.load(getClass().getResource("ChangeCustomer.fxml"));
-                    Scene scene = new Scene(root);
-                    ChangeCustomer.setResizable(false);
-                    ChangeCustomer.setScene(scene);
-                    ChangeCustomer.show();
+                try {
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("ChangeCustomer.fxml"));
+                    Parent studentViewParent = loader.load();
+                    Scene scene = new Scene(studentViewParent);
+                    ChangeCustomer controller = loader.getController();
+                    Customer selected = TableCustomer.getSelectionModel().getSelectedItem();
+                    controller.SetCustomer(selected);
+                    stage.setScene(scene);
+                    stage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

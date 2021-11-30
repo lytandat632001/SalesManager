@@ -35,7 +35,7 @@
          <items>
             <MenuItem fx:id="AddCustomer" mnemonicParsing="false" text="Thêm Khách Hàng" />
             <MenuItem fx:id="EditCustomer" mnemonicParsing="false" text="Chỉnh Sửa Thông Tin" />
-            <MenuItem fx:id="RemoveCustomer" mnemonicParsing="false" text="Xoá Khách Hàng" />
+            <MenuItem fx:id="RemoveCustomer" mnemonicParsing="false" text="Xóa khách hàng" />
          </items>
       </MenuButton>
       <MenuButton layoutX="204.0" mnemonicParsing="false" text="Hàng Hóa">

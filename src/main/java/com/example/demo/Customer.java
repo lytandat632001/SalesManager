@@ -21,6 +21,7 @@ public class Customer {
         CreationDate = creationDate;
     }
 
+
     public Customer(){
 
     }
