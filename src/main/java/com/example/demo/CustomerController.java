@@ -46,7 +46,7 @@ public class CustomerController  implements Initializable {
     @FXML
     private TableColumn<Customer,String> Phone;
     @FXML
-    private MenuButton menu;
+    private MenuButton Menu;
     @FXML
     private TableColumn<Customer,Date> CreationDate;
     private ObservableList<Customer>CustomerList = FXCollections.observableArrayList();
@@ -87,7 +87,7 @@ public class CustomerController  implements Initializable {
                     ChangeCustomer.setResizable(false);
                     ChangeCustomer.setScene(scene);
                     ChangeCustomer.show();
-                    menu.getScene().getWindow().hide();
+                    Menu.getScene().getWindow().hide();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -110,7 +110,7 @@ public class CustomerController  implements Initializable {
                     controller.SetCustomer(selected);
                     stage.setScene(scene);
                     stage.show();
-                    menu.getScene().getWindow().hide();
+                    Menu.getScene().getWindow().hide();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

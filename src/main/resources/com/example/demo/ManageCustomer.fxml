@@ -31,7 +31,7 @@
             <MenuItem mnemonicParsing="false" text="Đăng Xuất" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="menu" layoutX="96.0" mnemonicParsing="false" text="Khách Hàng">
+      <MenuButton fx:id="Menu" layoutX="96.0" mnemonicParsing="false" text="Khách Hàng">
          <items>
             <MenuItem fx:id="AddCustomer" mnemonicParsing="false" text="Thêm Khách Hàng" />
             <MenuItem fx:id="EditCustomer" mnemonicParsing="false" text="Chỉnh Sửa Thông Tin" />
