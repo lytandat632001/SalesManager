@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,7 +24,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class    CustomerController  implements Initializable {
+public class CustomerController  implements Initializable {
     @FXML
     private MenuItem AddCustomer;
     @FXML
@@ -44,6 +45,8 @@ public class    CustomerController  implements Initializable {
     private TableColumn<Customer,Date> DateOfBirth;
     @FXML
     private TableColumn<Customer,String> Phone;
+    @FXML
+    private MenuButton menu;
     @FXML
     private TableColumn<Customer,Date> CreationDate;
     private ObservableList<Customer>CustomerList = FXCollections.observableArrayList();
@@ -76,19 +79,19 @@ public class    CustomerController  implements Initializable {
         AddCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 try {
+
                     Stage ChangeCustomer = new Stage();
                     Parent root = FXMLLoader.load(getClass().getResource("ChangeCustomer.fxml"));
                     Scene scene = new Scene(root);
                     ChangeCustomer.setResizable(false);
                     ChangeCustomer.setScene(scene);
                     ChangeCustomer.show();
+                    menu.getScene().getWindow().hide();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
+                
             }
         });
         EditCustomer.setOnAction(new EventHandler<ActionEvent>(){
@@ -96,6 +99,7 @@ public class    CustomerController  implements Initializable {
             public void handle(ActionEvent event) {
 
                 try {
+
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("ChangeCustomer.fxml"));
@@ -106,6 +110,7 @@ public class    CustomerController  implements Initializable {
                     controller.SetCustomer(selected);
                     stage.setScene(scene);
                     stage.show();
+                    menu.getScene().getWindow().hide();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
