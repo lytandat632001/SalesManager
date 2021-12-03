@@ -27,7 +27,7 @@ public class LoginController{
     @FXML
     private PasswordField PassWord;
     @FXML
-    private CheckBox Remember;
+    private Button ForgotPassWord;
     @FXML
     public static User UserLogin = new User();
 
@@ -91,4 +91,14 @@ public class LoginController{
         Resigter.show();
 
 }
+    @FXML
+    public void ActionForgotPassWord(ActionEvent actionEvent) throws IOException{
+        ForgotPassWord.getScene().getWindow().hide();
+        Stage ForgotPasswords = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("ForgotPassword.fxml"));
+        Scene scene = new Scene(root);
+        ForgotPasswords.setResizable(false);
+        ForgotPasswords.setScene(scene);
+        ForgotPasswords.show();
+    }
 }

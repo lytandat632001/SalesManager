@@ -30,6 +30,8 @@ public class RegisterController {
     private PasswordField PassRegister;
     @FXML
     private PasswordField PassRegisterAgain;
+    @FXML
+    private TextField SecretQuestion;
 
     @FXML
     void ActionBackLogin(ActionEvent event) throws IOException {
@@ -44,9 +46,7 @@ public class RegisterController {
 
     @FXML
     void ActionRegisterMore(ActionEvent event) throws IOException{
-    User CurrentUser=new User();
-    User CreateUser = new User();
-    if(!(UserRegister.getText().equals("") || PassRegister.getText().equals("") || PassRegisterAgain.getText().equals(""))){
+    if(!(UserRegister.getText().equals("") || PassRegister.getText().equals("") || PassRegisterAgain.getText().equals("") || SecretQuestion.getText().equals(""))){
         if(PassRegister.getText().equals(PassRegisterAgain.getText())){
 
             try {
@@ -56,17 +56,18 @@ public class RegisterController {
                 psUser.setString(2, PassRegister.getText());
                 ResultSet rsUser = psUser.executeQuery();
                 if (!rsUser.next()){
-                            PreparedStatement ps = con.prepareStatement("Insert Into [user](username,password) VALUES (?,?)");
+                            PreparedStatement ps = con.prepareStatement("Insert Into [user](username,password,secretquestion) VALUES (?,?,?)");
                             ps.setString(1,UserRegister.getText());
                             ps.setString(2,PassRegister.getText());
+                            ps.setString(3,SecretQuestion.getText());
                             ps.executeUpdate();
                             RegisterMore.getScene().getWindow().hide();
-                    Stage Login = new Stage();
-                    Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-                    Scene scene = new Scene(root);
-                    Login.setResizable(false);
-                    Login.setScene(scene);
-                    Login.show();
+                            Stage Login = new Stage();
+                            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                            Scene scene = new Scene(root);
+                            Login.setResizable(false);
+                            Login.setScene(scene);
+                            Login.show();
                 }
                 else{
                     Alert alert = new Alert(AlertType.ERROR);
