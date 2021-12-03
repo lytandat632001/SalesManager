@@ -34,8 +34,6 @@ public class ChangeCustomer {
     private Button Save;
     @FXML
     private Button Back;
-    @FXML
-    private TextField CreationDate;
     public int iDCustomer=0;
     public String getSex=null;
     public LocalDate now=LocalDate.now();
@@ -52,7 +50,6 @@ public class ChangeCustomer {
         DateOfBirth.setText(String.valueOf(customer.getDateOfBirth()));
         Address.setText(customer.getAddress());
         Phone.setText(customer.getPhoneNumber());
-        CreationDate.setText(String.valueOf(customer.getCreationDate()));
     }
     public void ActionSave(ActionEvent actionEvent) throws IOException {
            boolean flag=true;
@@ -63,7 +60,7 @@ public class ChangeCustomer {
                    if(Male.isSelected()==flag){
                        getSex="Nam";
                    }else{
-                       getSex="Nu";
+                       getSex="Nữ";
                    }
                    LocalDate now=LocalDate.now();
                    PreparedStatement ps = con.prepareStatement("UPDATE [customer] SET fullname=?, sex=?, address=?, dateofbirth=?, phonenumber=? WHERE idcustomer=?");
@@ -92,7 +89,7 @@ public class ChangeCustomer {
                if(Male.isSelected()==flag){
                    getSex="Nam";
                }else{
-                   getSex="Nu";
+                   getSex="Nữ";
                }
                PreparedStatement ps = con.prepareStatement("Insert Into [customer](fullname,sex,address,dateofbirth,phonenumber,creationdate,iduser) VALUES (?,?,?,?,?,?,?)");
                ps.setString(1,FullName.getText());
