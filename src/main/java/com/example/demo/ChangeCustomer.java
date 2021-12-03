@@ -8,9 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
-
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
@@ -39,42 +37,43 @@ public class ChangeCustomer {
     @FXML
     private TextField CreationDate;
     public int iDCustomer=0;
-    public String getSex;
+    public String getSex=null;
+    public LocalDate now=LocalDate.now();
     public void SetCustomer(Customer customer){
         iDCustomer = customer.getID();
         FullName.setText(customer.getFullName());
         if(customer.getSex().equalsIgnoreCase("nam")){
             Male.setSelected(true);
-            Female.setSelected(false);
+
         }
         else{
-            Male.setSelected(false);
             Female.setSelected(true);
         }
         DateOfBirth.setText(String.valueOf(customer.getDateOfBirth()));
         Address.setText(customer.getAddress());
         Phone.setText(customer.getPhoneNumber());
         CreationDate.setText(String.valueOf(customer.getCreationDate()));
-
     }
     public void ActionSave(ActionEvent actionEvent) throws IOException {
-       try{
+           boolean flag=true;
            Connection con=ConnectSQL.ConnectDb();
            if(iDCustomer!=0){
+               try{
                if(!FullName.getText().equalsIgnoreCase("")){
-                   if(Male.getText().equalsIgnoreCase("true")){
+                   if(Male.isSelected()==flag){
                        getSex="Nam";
                    }else{
                        getSex="Nu";
                    }
                    LocalDate now=LocalDate.now();
-//                   PreparedStatement ps = con.prepareStatement("UPDATE [customer] SET fullname=?, sex=?, address=?, dateofbirth=?, phonenumber=? WHERE idcustomer=?");
-//                   ps.setString(1,FullName.getText());
-//                   ps.setString(2,getSex);
-//                   ps.setString(3,Address.getText());
-//                   ps.setDate(4, Date.valueOf(DateOfBirth.getText()));
-//                   ps.setString(5,Phone.getText());
-//                   ps.setInt(6,iDCustomer);
+                   PreparedStatement ps = con.prepareStatement("UPDATE [customer] SET fullname=?, sex=?, address=?, dateofbirth=?, phonenumber=? WHERE idcustomer=?");
+                   ps.setString(1,FullName.getText());
+                   ps.setString(2,getSex);
+                   ps.setString(3,Address.getText());
+                   ps.setDate(4, Date.valueOf(DateOfBirth.getText()));
+                   ps.setString(5,Phone.getText());
+                   ps.setInt(6,iDCustomer);
+                   ps.executeUpdate();
                    Save.getScene().getWindow().hide();
                    Stage Customer = new Stage();
                    Parent root = FXMLLoader.load(getClass().getResource("ManageCustomer.fxml"));
@@ -83,37 +82,34 @@ public class ChangeCustomer {
                    Customer.setScene(scene);
                    Customer.show();
                }
+               }catch (Exception ex){
+           JOptionPane.showMessageDialog(null, ex);
+       }
            }
            else{
-               if(Male.getText().equalsIgnoreCase("true")){
+               try {
+               if(!FullName.getText().equalsIgnoreCase("")){
+               if(Male.isSelected()==flag){
                    getSex="Nam";
                }else{
                    getSex="Nu";
                }
-               LocalDate now=LocalDate.now();
-//               PreparedStatement ps = con.prepareStatement("Insert Into [customer](fullname,sex,address,dateofbirth,phonenumber,creationdate) VALUES (?,?,?,?,?,?)");
-//               ps.setString(1,FullName.getText());
-//               ps.setString(2,getSex);
-//               ps.setString(3,Address.getText());
-//               ps.setDate(4, Date.valueOf(DateOfBirth.getText()));
-//               ps.setString(5,Phone.getText());
-//               ps.setDate(6, Date.valueOf(now));
-               Save.getScene().getWindow().hide();
-               Stage Customer = new Stage();
-               Parent root = FXMLLoader.load(getClass().getResource("ManageCustomer.fxml"));
-               Scene scene = new Scene(root);
-               Customer.setResizable(false);
-               Customer.setScene(scene);
-               Customer.show();
-
+               PreparedStatement ps = con.prepareStatement("Insert Into [customer](fullname,sex,address,dateofbirth,phonenumber,creationdate,iduser) VALUES (?,?,?,?,?,?,?)");
+               ps.setString(1,FullName.getText());
+               ps.setString(2,getSex);
+               ps.setString(3,Address.getText());
+               ps.setDate(4, Date.valueOf(DateOfBirth.getText()));
+               ps.setString(5,Phone.getText());
+               ps.setDate(6, Date.valueOf(now));
+               ps.setInt(7,LoginController.UserLogin.getId());
+               ps.executeUpdate();
+               }
+               }catch (Exception ex){
+                   JOptionPane.showMessageDialog(null, ex);
+               }
            }
-       }catch (Exception ex){
-           JOptionPane.showMessageDialog(null, ex);
-       }
     }
-    public void ActionAdd(ActionEvent actionEvent) throws IOException {
 
-    }
     public void ActionBack(ActionEvent actionEvent) throws IOException {
         Back.getScene().getWindow().hide();
         Stage customer = new Stage();

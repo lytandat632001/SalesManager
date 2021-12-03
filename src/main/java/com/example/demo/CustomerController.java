@@ -121,12 +121,12 @@ public class CustomerController  implements Initializable {
         RemoveCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Customer CustomerRemove = TableCustomer.getSelectionModel().getSelectedItem();
-                TableCustomer.getItems().remove(CustomerRemove);
-
                 try {
+                    Customer CustomerRemove = TableCustomer.getSelectionModel().getSelectedItem();
                     PreparedStatement ps = con.prepareStatement("DELETE FROM [customer] WHERE idcustomer =?" );
                     ps.setInt(1,CustomerRemove.getID());
+                    ps.executeUpdate();
+                    TableCustomer.getItems().remove(CustomerRemove);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
