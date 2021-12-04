@@ -54,10 +54,8 @@ public class ManageAccount implements Initializable {
     private MenuItem SalesLead;
     @FXML
     private Button Back;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         try {
             Connection con = ConnectSQL.ConnectDb();
             PreparedStatement ps =con.prepareStatement("SELECT * FROM account WHERE iduser=?");
@@ -110,6 +108,24 @@ public class ManageAccount implements Initializable {
 
             }
         });
+        CustomerList.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    Stage Customers = new Stage();
+                    Parent root = null;
+                    root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                    Scene scene = new Scene(root);
+                    Customers.setResizable(false);
+                    Customers.setScene(scene);
+                    Customers.show();
+                    MenuCustomer.getScene().getWindow().hide();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
     }
 
     public void ActionBack(ActionEvent event)throws IOException{
@@ -133,7 +149,6 @@ public class ManageAccount implements Initializable {
                     } else {
                         getSex = "Nữ";
                     }
-                    LocalDate now = LocalDate.now();
                     try {
                         Connection con=ConnectSQL.ConnectDb();
                     PreparedStatement ps = con.prepareStatement("UPDATE account SET fullname=?, sex=?,address=?,dateofbirth=?,phonenumber=? WHERE iduser=?");
