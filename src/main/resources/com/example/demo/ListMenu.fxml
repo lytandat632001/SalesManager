@@ -9,8 +9,8 @@
       <Button layoutX="230.0" layoutY="104.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="QL Nhân viên" />
       <Button layoutX="230.0" layoutY="155.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="QL Hàng Hóa" />
       <Button layoutX="230.0" layoutY="200.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="QL Kho" />
-      <Button layoutX="230.0" layoutY="245.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="QL Tài Khoản" />
-      <Button layoutX="72.0" layoutY="298.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="Đăng Xuất " />
-      <Button layoutX="378.0" layoutY="305.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="Thoát" />
+      <Button fx:id="Account" layoutX="230.0" layoutY="245.0" mnemonicParsing="false" onAction="#ActionAccount" prefHeight="29.0" prefWidth="121.0" text="QL Tài Khoản" />
+      <Button fx:id="LogOut" layoutX="72.0" layoutY="298.0" mnemonicParsing="false" onAction="#ActionLogOut" prefHeight="29.0" prefWidth="121.0" text="Đăng Xuất " />
+      <Button fx:id="Exit" layoutX="378.0" layoutY="305.0" mnemonicParsing="false" onAction="#ActionExit" prefHeight="29.0" prefWidth="121.0" text="Thoát" />
    </children>
 </AnchorPane>
