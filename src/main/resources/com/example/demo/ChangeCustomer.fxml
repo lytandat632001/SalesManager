@@ -9,21 +9,21 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ChangeCustomer">
    <children>
-      <Label layoutX="83.0" layoutY="80.0" text="Fullname" AnchorPane.leftAnchor="74.0" />
-      <Label layoutX="86.0" layoutY="200.0" text="Address" AnchorPane.leftAnchor="74.0" />
+      <Label layoutX="83.0" layoutY="80.0" text="Username" AnchorPane.leftAnchor="74.0" />
       <Label layoutX="88.0" layoutY="120.0" text="Sex" AnchorPane.leftAnchor="74.0" />
       <Label layoutX="74.0" layoutY="160.0" text="Date of birth" AnchorPane.leftAnchor="74.0" />
+      <Label layoutX="86.0" layoutY="200.0" text="Address" AnchorPane.leftAnchor="74.0" />
       <Label layoutX="83.0" layoutY="240.0" text="Phone number" AnchorPane.leftAnchor="74.0" />
-      <TextField fx:id="FullName" layoutX="236.0" layoutY="76.0" prefHeight="25.0" prefWidth="224.0" />
-      <TextField fx:id="Address" layoutX="236.0" layoutY="196.0" prefHeight="25.0" prefWidth="224.0" />
-      <TextField fx:id="Phone" layoutX="236.0" layoutY="236.0" prefHeight="25.0" prefWidth="224.0" />
-      <TextField fx:id="DateOfBirth" layoutX="236.0" layoutY="156.0" prefHeight="25.0" prefWidth="224.0" />
-      <Button fx:id="Save" layoutX="408.0" layoutY="306.0" mnemonicParsing="false" onAction="#ActionSave" text="Save" />
+      <TextField fx:id="FullName" layoutX="236.0" layoutY="76.0" prefHeight="25.0" prefWidth="224.0" promptText="Username" />
       <RadioButton fx:id="Male" layoutX="236.0" layoutY="120.0" mnemonicParsing="false" selected="true" text="Male">
          <toggleGroup>
             <ToggleGroup fx:id="SexGroup" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="Female" layoutX="348.0" layoutY="120.0" mnemonicParsing="false" text="Female" toggleGroup="$SexGroup" />
+      <TextField fx:id="DateOfBirth" layoutX="236.0" layoutY="156.0" prefHeight="25.0" prefWidth="224.0" promptText="2001-01-11" />
+      <TextField fx:id="Address" layoutX="236.0" layoutY="196.0" prefHeight="25.0" prefWidth="224.0" promptText="Address" />
+      <TextField fx:id="Phone" layoutX="236.0" layoutY="236.0" prefHeight="25.0" prefWidth="224.0" promptText="Phone number" />
       <Button fx:id="Back" layoutX="236.0" layoutY="306.0" mnemonicParsing="false" onAction="#ActionBack" text="Back" />
+      <Button fx:id="Save" layoutX="406.0" layoutY="306.0" mnemonicParsing="false" onAction="#ActionSave" text="Save" AnchorPane.rightAnchor="140.0" />
    </children>
 </AnchorPane>

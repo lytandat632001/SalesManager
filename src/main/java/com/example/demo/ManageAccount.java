@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,16 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
-import javax.imageio.IIOException;
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.time.LocalDate;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ManageAccount implements Initializable {
@@ -54,6 +50,7 @@ public class ManageAccount implements Initializable {
     private MenuItem SalesLead;
     @FXML
     private Button Back;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -126,6 +123,42 @@ public class ManageAccount implements Initializable {
 
             }
         });
+//        SalesLead.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                Connection con =ConnectSQL.ConnectDb();
+//                try {
+//                    PreparedStatement ps = con.prepareStatement("SELECT * FROM [customer] Where iduser=? AND creationdate BETWEEN '2021-10-01'And '2021-11-29'");
+//                    ps.setInt(1,LoginController.UserLogin.getId());
+//                    ResultSet rs =ps.executeQuery();
+//                    while (rs.next()){
+//                        CustomerLists.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
+//                                rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
+//                                rs.getString("phonenumber"),rs.getDate("creationdate")));
+//                    }
+//                } catch ( SQLException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                try {
+//                    Stage stage = new Stage();
+//                    FXMLLoader loader = new FXMLLoader();
+//                    loader.setLocation(getClass().getResource("ManageCustomer.fxml"));
+//                    Parent studentViewParent = loader.load();
+//                    Scene scene = new Scene(studentViewParent);
+//                    CustomerController controller = loader.getController();
+//                    controller.SetCustomer(CustomerLists);
+//                    stage.setScene(scene);
+//                    stage.show();
+//                    MenuCustomer.getScene().getWindow().hide();
+//                }catch (Exception exception){
+//                    JOptionPane.showMessageDialog(null,exception);
+//                }
+//
+//            }
+//        });
+
+
     }
 
     public void ActionBack(ActionEvent event)throws IOException{

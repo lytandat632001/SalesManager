@@ -8,29 +8,35 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ManageAccount">
    <children>
-      <Label layoutX="255.0" layoutY="43.0" text="Manage Account" />
+      <Label layoutX="225.0" layoutY="36.0" text="Manage Account" AnchorPane.topAnchor="35.0">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
       <Label layoutX="115.0" layoutY="90.0" text="Username" AnchorPane.leftAnchor="100.0" />
       <Label layoutX="118.0" layoutY="125.0" text="Fullname" AnchorPane.leftAnchor="100.0" />
       <Label layoutX="129.0" layoutY="160.0" text="Sex" AnchorPane.leftAnchor="100.0" />
+      <Label layoutX="91.0" layoutY="195.0" text="Date of birth" AnchorPane.leftAnchor="100.0" />
       <Label layoutX="103.0" layoutY="230.0" text="Address" AnchorPane.leftAnchor="103.0" />
-      <Label layoutX="102.0" layoutY="265.0" text="Phone" AnchorPane.leftAnchor="102.0" />
-      <Label layoutX="98.0" layoutY="300.0" text="Creation date" AnchorPane.leftAnchor="98.0" />
-      <TextField fx:id="UserName" editable="false" layoutX="233.0" layoutY="86.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="FullName" layoutX="233.0" layoutY="121.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="DateOfBirth" layoutX="233.0" layoutY="188.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="Address" layoutX="233.0" layoutY="226.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="Phone" layoutX="233.0" layoutY="261.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
+      <Label layoutX="102.0" layoutY="265.0" text="Phone number" AnchorPane.leftAnchor="102.0" />
+      <Label layoutX="98.0" layoutY="300.0" text="Creation date" AnchorPane.leftAnchor="102.0" />
+      <TextField fx:id="UserName" editable="false" layoutX="233.0" layoutY="86.0" prefHeight="25.0" prefWidth="237.0" promptText="Username" AnchorPane.rightAnchor="130.0" />
+      <TextField fx:id="FullName" layoutX="233.0" layoutY="121.0" prefHeight="25.0" prefWidth="237.0" promptText="Fullname" AnchorPane.rightAnchor="130.0" />
       <RadioButton fx:id="Male" layoutX="233.0" layoutY="160.0" mnemonicParsing="false" selected="true" text="Male">
          <toggleGroup>
             <ToggleGroup fx:id="Sex" />
          </toggleGroup>
       </RadioButton>
       <RadioButton fx:id="Female" layoutX="345.0" layoutY="160.0" mnemonicParsing="false" text="Female" toggleGroup="$Sex" />
-      <Button fx:id="Edit" layoutX="387.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionEdit" text="Edit Account" />
-      <Button fx:id="Back" layoutX="233.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionBack" text="Back Menu" />
+      <TextField fx:id="DateOfBirth" layoutX="233.0" layoutY="188.0" prefHeight="25.0" prefWidth="237.0" promptText="2001-01-11" AnchorPane.rightAnchor="130.0" />
+      <TextField fx:id="Address" layoutX="233.0" layoutY="226.0" prefHeight="25.0" prefWidth="237.0" promptText="Address" AnchorPane.rightAnchor="130.0" />
+      <TextField fx:id="Phone" layoutX="233.0" layoutY="261.0" prefHeight="25.0" prefWidth="237.0" promptText="Phone number" AnchorPane.rightAnchor="130.0" />
+      <TextField fx:id="CreationDate" editable="false" layoutX="233.0" layoutY="296.0" prefHeight="25.0" prefWidth="237.0" promptText="Creation date" />
+      <Button fx:id="Back" layoutX="233.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionBack" text="Back login" />
+      <Button fx:id="Edit" layoutX="429.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionEdit" text="Save" />
       <MenuButton fx:id="MenuAccount" mnemonicParsing="false" text="Account">
         <items>
           <MenuItem fx:id="LogOut" mnemonicParsing="false" text="Logout" />
@@ -39,11 +45,9 @@
       </MenuButton>
       <MenuButton fx:id="MenuCustomer" layoutX="101.0" mnemonicParsing="false" text="Customer">
         <items>
-          <MenuItem fx:id="CustomerList" mnemonicParsing="false" text="Customer list" />
+          <MenuItem fx:id="CustomerList" mnemonicParsing="false" text="Customers list" />
           <MenuItem fx:id="SalesLead" mnemonicParsing="false" text="Sales lead" />
         </items>
       </MenuButton>
-      <TextField fx:id="CreationDate" editable="false" layoutX="233.0" layoutY="296.0" prefHeight="25.0" prefWidth="237.0" />
-      <Label layoutX="91.0" layoutY="195.0" text="Date of birth" AnchorPane.leftAnchor="100.0" />
    </children>
 </AnchorPane>

@@ -5,12 +5,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuController">
    <children>
-      <Button fx:id="Customer" layoutX="230.0" layoutY="52.0" mnemonicParsing="false" onAction="#ActionCustomer" prefHeight="29.0" prefWidth="121.0" text="QL Khách Hàng" />
-      <Button layoutX="230.0" layoutY="104.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="QL Nhân viên" />
-      <Button layoutX="230.0" layoutY="155.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="QL Hàng Hóa" />
-      <Button layoutX="230.0" layoutY="200.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="121.0" text="QL Kho" />
-      <Button fx:id="Account" layoutX="230.0" layoutY="245.0" mnemonicParsing="false" onAction="#ActionAccount" prefHeight="29.0" prefWidth="121.0" text="QL Tài Khoản" />
-      <Button fx:id="LogOut" layoutX="72.0" layoutY="298.0" mnemonicParsing="false" onAction="#ActionLogOut" prefHeight="29.0" prefWidth="121.0" text="Đăng Xuất " />
-      <Button fx:id="Exit" layoutX="378.0" layoutY="305.0" mnemonicParsing="false" onAction="#ActionExit" prefHeight="29.0" prefWidth="121.0" text="Thoát" />
+      <Button fx:id="Customer" layoutX="230.0" layoutY="52.0" mnemonicParsing="false" onAction="#ActionCustomer" prefHeight="29.0" prefWidth="130.0" text="Manage customer" />
+      <Button layoutX="230.0" layoutY="104.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="130.0" text="Manage staff" />
+      <Button layoutX="230.0" layoutY="155.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="130.0" text="Manage goods" />
+      <Button layoutX="230.0" layoutY="200.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="130.0" text="Manage warehouse" />
+      <Button fx:id="Account" layoutX="230.0" layoutY="245.0" mnemonicParsing="false" onAction="#ActionAccount" prefHeight="29.0" prefWidth="130.0" text="Manage account" />
+      <Button fx:id="LogOut" layoutX="72.0" layoutY="298.0" mnemonicParsing="false" onAction="#ActionLogOut" prefHeight="29.0" prefWidth="121.0" text="Logout" />
+      <Button fx:id="Exit" layoutX="378.0" layoutY="305.0" mnemonicParsing="false" onAction="#ActionExit" prefHeight="29.0" prefWidth="121.0" text="Exit" />
    </children>
 </AnchorPane>

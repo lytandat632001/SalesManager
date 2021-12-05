@@ -31,6 +31,8 @@ public class CustomerController  implements Initializable {
     @FXML
     private MenuItem RemoveCustomer;
     @FXML
+    private MenuItem SalesLead;
+    @FXML
     private TableView<Customer> TableCustomer;
     @FXML
     private TableColumn<Customer,Integer> IDCustomer;
@@ -46,6 +48,14 @@ public class CustomerController  implements Initializable {
     private TableColumn<Customer,String> Phone;
     @FXML
     private MenuButton Menu;
+    @FXML
+    private MenuButton Account;
+    @FXML
+    private MenuItem LogOut;
+    @FXML
+    private MenuItem Exit;
+    @FXML
+    private MenuItem EditAccount;
     @FXML
     private TableColumn<Customer,Date> CreationDate;
     private ObservableList<Customer>CustomerList = FXCollections.observableArrayList();
@@ -75,6 +85,74 @@ public class CustomerController  implements Initializable {
                     Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
                     CreationDate.setCellValueFactory(new PropertyValueFactory<Customer,Date>("CreationDate"));
                     TableCustomer.setItems(CustomerList);
+//        SalesLead.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                LocalDate now=LocalDate.now();
+//
+//                    try {
+//                        // ket noi database
+//                        PreparedStatement ps = con.prepareStatement("SELECT * FROM [customer] Where iduser=? AND creationdate BETWEEN ? AND ? ");
+//                        ps.setInt(1,LoginController.UserLogin.getId());
+//                        ps.setDate(2, Date.valueOf(now));
+//                        ps.setDate(3, Date.valueOf(now.minusDays(4)));
+//                        ResultSet rs =ps.executeQuery();
+//                        while (rs.next()){
+//                            CustomerList.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
+//                                    rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
+//                                    rs.getString("phonenumber"),rs.getDate("creationdate")));
+//                        }
+//                    }catch (Exception ex) {
+//                        JOptionPane.showMessageDialog(null, ex);
+//                }
+//                    TableCustomer.setItems(CustomerList);
+//            }
+//        });
+        //Menu Account
+        EditAccount.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    Stage ChangeCustomer = new Stage();
+                    Parent root = FXMLLoader.load(getClass().getResource("ManageAccount.fxml"));
+                    Scene scene = new Scene(root);
+                    ChangeCustomer.setResizable(false);
+                    ChangeCustomer.setScene(scene);
+                    ChangeCustomer.show();
+                    Account.getScene().getWindow().hide();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        LogOut.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+
+                    Stage Login = new Stage();
+                    Parent root = null;
+                    root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                    Scene scene = new Scene(root);
+                    Login.setResizable(false);
+                    Login.setScene(scene);
+                    Login.show();
+                    Account.getScene().getWindow().hide();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        Exit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Platform.exit();
+
+            }
+        });
+        //Menu Customer
         AddCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -98,7 +176,6 @@ public class CustomerController  implements Initializable {
             public void handle(ActionEvent event) {
 
                 try {
-
                     Stage stage = new Stage();
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("ChangeCustomer.fxml"));
@@ -133,4 +210,14 @@ public class CustomerController  implements Initializable {
         });
 
     }
+//    public void SetCustomer(ObservableList<Customer> customerList){
+//        IDCustomer.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("ID"));
+//        NameCustomer.setCellValueFactory(new PropertyValueFactory<Customer,String>("FullName"));
+//        SexCustomer.setCellValueFactory(new PropertyValueFactory<Customer,String>("Sex"));
+//        Address.setCellValueFactory(new PropertyValueFactory<Customer,String>("address"));
+//        DateOfBirth.setCellValueFactory(new PropertyValueFactory<Customer,Date>("DateOfBirth"));
+//        Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
+//        CreationDate.setCellValueFactory(new PropertyValueFactory<Customer,Date>("CreationDate"));
+//        TableCustomer.setItems(CustomerList);
+//    }
 }
