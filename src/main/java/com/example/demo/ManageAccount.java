@@ -111,7 +111,25 @@ public class ManageAccount implements Initializable {
                 try {
                     Stage Customers = new Stage();
                     Parent root = null;
-                    root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("ManageCustomer.fxml"));
+                    Scene scene = new Scene(root);
+                    Customers.setResizable(false);
+                    Customers.setScene(scene);
+                    Customers.show();
+                    MenuCustomer.getScene().getWindow().hide();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        SalesLead.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                try {
+                    Stage Customers = new Stage();
+                    Parent root = null;
+                    root = FXMLLoader.load(getClass().getResource("ManageCustomer.fxml"));
                     Scene scene = new Scene(root);
                     Customers.setResizable(false);
                     Customers.setScene(scene);
