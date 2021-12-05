@@ -110,7 +110,7 @@ public class ChangeCustomer {
     public void ActionBack(ActionEvent actionEvent) throws IOException {
         Back.getScene().getWindow().hide();
         Stage customer = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ManageCustomer.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
         customer.setResizable(false);
         customer.setScene(scene);
