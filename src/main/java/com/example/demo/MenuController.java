@@ -27,6 +27,7 @@ public class MenuController {
         Stage customer = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("ManageCustomer.fxml"));
         Scene scene = new Scene(root);
+        customer.setTitle("GoodFriend");
         customer.setResizable(false);
         customer.setScene(scene);
         customer.show();
@@ -36,18 +37,20 @@ public class MenuController {
         Stage StageAccount = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("ManageAccount.fxml"));
         Scene scene = new Scene(root);
+        StageAccount.setTitle("GoodFriend");
         StageAccount.setResizable(false);
         StageAccount.setScene(scene);
         StageAccount.show();
     }
     public void ActionLogOut(ActionEvent actionEvent)throws IOException{
         LogOut.getScene().getWindow().hide();
-        Stage StageAccount = new Stage();
+        Stage StageLogin = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
-        StageAccount.setResizable(false);
-        StageAccount.setScene(scene);
-        StageAccount.show();
+        StageLogin.setTitle("GoodFriend");
+        StageLogin.setResizable(false);
+        StageLogin.setScene(scene);
+        StageLogin.show();
     }
     public void ActionExit(ActionEvent actionEvent)throws IOException{
         Platform.exit();
