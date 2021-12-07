@@ -12,10 +12,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.time.LocalDate;
-
 
 public class ChangeCustomer {
     @FXML
@@ -35,8 +32,6 @@ public class ChangeCustomer {
     @FXML
     private Button Back;
     public int iDCustomer=0;
-    public String getSex=null;
-    public LocalDate now=LocalDate.now();
     public void SetCustomer(Customer customer){
         iDCustomer = customer.getID();
         FullName.setText(customer.getFullName());
@@ -52,22 +47,15 @@ public class ChangeCustomer {
         Phone.setText(customer.getPhoneNumber());
     }
     public void ActionSave(ActionEvent actionEvent) throws IOException {
-           boolean flag=true;
            Connection con=ConnectSQL.ConnectDb();
            if(iDCustomer!=0){
-               try{
                if(!FullName.getText().equalsIgnoreCase("")){
-                   if(Male.isSelected()==flag){
-                       getSex="Nam";
-                   }else{
-                       getSex="Nữ";
-                   }
-                   LocalDate now=LocalDate.now();
+                   try{
                    PreparedStatement ps = con.prepareStatement("UPDATE [customer] SET fullname=?, sex=?, address=?, dateofbirth=?, phonenumber=? WHERE idcustomer=?");
                    ps.setString(1,FullName.getText());
-                   ps.setString(2,getSex);
+                   ps.setString(2,FunctionLoad.CheckMale(Male.isSelected()));
                    ps.setString(3,Address.getText());
-                   ps.setDate(4, Date.valueOf(DateOfBirth.getText()));
+                   ps.setDate(4, FunctionLoad.CheckDate(DateOfBirth.getText()));
                    ps.setString(5,Phone.getText());
                    ps.setInt(6,iDCustomer);
                    ps.executeUpdate();
@@ -78,31 +66,36 @@ public class ChangeCustomer {
                    Customer.setResizable(false);
                    Customer.setScene(scene);
                    Customer.show();
+
+                   }catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex);
+                     }
+               }else {
+                   String Title="Sửa thông tin khách hàng thất bại!";
+                   String Content="Vui lòng nhập tên khách hàng!";
+                   FunctionLoad.AlertProgram(Title,Content);
                }
-               }catch (Exception ex){
-           JOptionPane.showMessageDialog(null, ex);
-       }
            }
            else{
-               try {
                if(!FullName.getText().equalsIgnoreCase("")){
-               if(Male.isSelected()==flag){
-                   getSex="Nam";
-               }else{
-                   getSex="Nữ";
-               }
+                   try {
                PreparedStatement ps = con.prepareStatement("Insert Into [customer](fullname,sex,address,dateofbirth,phonenumber,creationdate,iduser) VALUES (?,?,?,?,?,?,?)");
                ps.setString(1,FullName.getText());
-               ps.setString(2,getSex);
+               ps.setString(2,FunctionLoad.CheckMale(Male.isSelected()));
                ps.setString(3,Address.getText());
-               ps.setDate(4, Date.valueOf(DateOfBirth.getText()));
+               ps.setDate(4, FunctionLoad.CheckDate(DateOfBirth.getText()));
                ps.setString(5,Phone.getText());
-               ps.setDate(6, Date.valueOf(now));
+               ps.setDate(6, FunctionLoad.now());
                ps.setInt(7,LoginController.UserLogin.getId());
                ps.executeUpdate();
-               }
+
                }catch (Exception ex){
                    JOptionPane.showMessageDialog(null, ex);
+               }
+             }else {
+                   String Title="Thêm khách hàng thất bại!";
+                   String Content="Vui lòng nhập tên khách hàng!";
+                   FunctionLoad.AlertProgram(Title,Content);
                }
            }
     }
@@ -112,8 +105,10 @@ public class ChangeCustomer {
         Stage customer = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene scene = new Scene(root);
+        customer.setTitle("GoodFriend");
         customer.setResizable(false);
         customer.setScene(scene);
         customer.show();
     }
+
 }

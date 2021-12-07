@@ -51,31 +51,27 @@ public class LoginController{
                     Stage MenuTemp = new Stage();
                     Parent root = FXMLLoader.load(getClass().getResource("ListMenu.fxml"));
                     Scene scene = new Scene(root);
+                    MenuTemp.setTitle("GoodFriend");
                     MenuTemp.setScene(scene);
                     MenuTemp.setResizable(false);
                     MenuTemp.show();
                 }
                 else
                 {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Đăng nhập không thành công");
-                    alert.setContentText("Tài khoản hoặc mật khẩu không chính xác");
-                    alert.show();
+                    String Title="Đăng nhập không thành công";
+                    String Content="Tên người dùng hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại!";
+                    FunctionLoad.AlertProgram(Title,Content);
                 }
 
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-
-
-        //}
         else
         {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Đăng nhập không thành công");
-            alert.setContentText("Vui lòng nhập đầy đủ tài khoản và mật khẩu!");
-            alert.show();
+            String Title="Đăng nhập không thành công";
+            String Content="Vui lòng nhập đẩy đủ tên người dùng và mật khẩu";
+            FunctionLoad.AlertProgram(Title,Content);
         }
         }
 
@@ -86,6 +82,7 @@ public class LoginController{
         Stage Resigter = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
         Scene scene = new Scene(root);
+        Resigter.setTitle("GoodFriend");
         Resigter.setResizable(false);
         Resigter.setScene(scene);
         Resigter.show();
@@ -95,8 +92,9 @@ public class LoginController{
     public void ActionForgotPassWord(ActionEvent actionEvent) throws IOException{
         ForgotPassWord.getScene().getWindow().hide();
         Stage ForgotPasswords = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ForgotPassword.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ForgotPass.fxml"));
         Scene scene = new Scene(root);
+        ForgotPasswords.setTitle("GoodFriend");
         ForgotPasswords.setResizable(false);
         ForgotPasswords.setScene(scene);
         ForgotPasswords.show();

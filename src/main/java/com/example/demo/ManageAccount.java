@@ -1,8 +1,6 @@
 package com.example.demo;
 
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -55,11 +53,11 @@ public class ManageAccount implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             Connection con = ConnectSQL.ConnectDb();
-            PreparedStatement ps =con.prepareStatement("SELECT * FROM account WHERE iduser=?");
+            PreparedStatement ps =con.prepareStatement("SELECT username, fullname, sex, dateofbirth, address, phonenumber,creationdate FROM account inner join [user] u on u.iduser = account.iduser where account.iduser=?");
             ps.setInt(1,LoginController.UserLogin.getId());
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                UserName.setText(String.valueOf(rs.getInt("iduser")));
+                UserName.setText(String.valueOf(rs.getString("username")));
                 FullName.setText(rs.getString("fullname"));
                 if (rs.getString("sex").equalsIgnoreCase("nam")){
                     Male.setSelected(true);
@@ -131,6 +129,7 @@ public class ManageAccount implements Initializable {
                     Parent root = null;
                     root = FXMLLoader.load(getClass().getResource("ManageCustomer.fxml"));
                     Scene scene = new Scene(root);
+                    Customers.setTitle("GoodFriend");
                     Customers.setResizable(false);
                     Customers.setScene(scene);
                     Customers.show();
@@ -141,41 +140,6 @@ public class ManageAccount implements Initializable {
 
             }
         });
-//        SalesLead.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                Connection con =ConnectSQL.ConnectDb();
-//                try {
-//                    PreparedStatement ps = con.prepareStatement("SELECT * FROM [customer] Where iduser=? AND creationdate BETWEEN '2021-10-01'And '2021-11-29'");
-//                    ps.setInt(1,LoginController.UserLogin.getId());
-//                    ResultSet rs =ps.executeQuery();
-//                    while (rs.next()){
-//                        CustomerLists.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
-//                                rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
-//                                rs.getString("phonenumber"),rs.getDate("creationdate")));
-//                    }
-//                } catch ( SQLException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                try {
-//                    Stage stage = new Stage();
-//                    FXMLLoader loader = new FXMLLoader();
-//                    loader.setLocation(getClass().getResource("ManageCustomer.fxml"));
-//                    Parent studentViewParent = loader.load();
-//                    Scene scene = new Scene(studentViewParent);
-//                    CustomerController controller = loader.getController();
-//                    controller.SetCustomer(CustomerLists);
-//                    stage.setScene(scene);
-//                    stage.show();
-//                    MenuCustomer.getScene().getWindow().hide();
-//                }catch (Exception exception){
-//                    JOptionPane.showMessageDialog(null,exception);
-//                }
-//
-//            }
-//        });
-
 
     }
 
@@ -184,36 +148,31 @@ public class ManageAccount implements Initializable {
         Stage MenuTemp = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("ListMenu.fxml"));
         Scene scene = new Scene(root);
+        MenuTemp.setTitle("GoodFriend");
         MenuTemp.setScene(scene);
         MenuTemp.setResizable(false);
         MenuTemp.show();
-
     }
     public void ActionEdit(ActionEvent actionEvent)throws IOException {
-        boolean flag=true;
-
                 if (!FullName.getText().equalsIgnoreCase("")) {
-                    String getSex=null;
-
-                    if (Male.isSelected() == flag) {
-                        getSex = "Nam";
-                    } else {
-                        getSex = "Nữ";
-                    }
                     try {
                         Connection con=ConnectSQL.ConnectDb();
                     PreparedStatement ps = con.prepareStatement("UPDATE account SET fullname=?, sex=?,address=?,dateofbirth=?,phonenumber=? WHERE iduser=?");
                     ps.setString(1, FullName.getText());
-                    ps.setString(2, getSex);
+                    ps.setString(2, FunctionLoad.CheckMale(Male.isSelected()));
                     ps.setString(3, Address.getText());
-                    ps.setDate(4, Date.valueOf(DateOfBirth.getText()));
+                    ps.setDate(4, FunctionLoad.CheckDate(DateOfBirth.getText()));
                     ps.setString(5, Phone.getText());
                     ps.setInt(6, LoginController.UserLogin.getId());
                     ps.executeUpdate();
                 }catch (Exception exception){
                         JOptionPane.showMessageDialog(null,exception);
                     }
-            }
+            }else{
+                    String Title="Lưu thông tin thất bại!";
+                    String Content="Vui lòng nhập tên người sử dụng tài khoản!";
+                    FunctionLoad.AlertProgram(Title,Content);
+                }
     }
 
 

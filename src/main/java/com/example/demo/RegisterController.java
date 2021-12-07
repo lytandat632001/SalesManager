@@ -65,15 +65,15 @@ public class RegisterController {
                             Stage Login = new Stage();
                             Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
                             Scene scene = new Scene(root);
+                            Login.setTitle("GoodFriend");
                             Login.setResizable(false);
                             Login.setScene(scene);
                             Login.show();
                 }
                 else{
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Đăng kí không thành công!");
-                    alert.setContentText("Tài khoản đã tồn tại");
-                    alert.show();
+                    String Title="Đăng ký thất bại!";
+                    String Content="Tên người dùng đã tồn tại! Vui lòng sử dụng tên người dùng đăng ký khác.";
+                    FunctionLoad.AlertProgram(Title,Content);
                 }
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, e);
@@ -82,19 +82,17 @@ public class RegisterController {
         }
         else
         {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Đăng kí không thành công!");
-            alert.setContentText("Mật khẩu không trùng nhau! Vui lòng thử lại.");
-            alert.show();
+            String Title="Đăng ký thất bại!";
+            String Content="Mật khẩu không trùng khớp!";
+            FunctionLoad.AlertProgram(Title,Content);
         }
     }
         
     else
     {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Đăng kí không thành công!");
-        alert.setContentText("Bạn chưa nhập đủ thông tin đăng ký! Vui lòng thử lại.");
-        alert.show();
+        String Title="Đăng ký thất bại!";
+        String Content="Vui lòng nhập đầy đủ thông tin!";
+        FunctionLoad.AlertProgram(Title,Content);
 
     }
 

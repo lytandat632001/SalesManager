@@ -85,29 +85,6 @@ public class CustomerController  implements Initializable {
                     Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
                     CreationDate.setCellValueFactory(new PropertyValueFactory<Customer,Date>("CreationDate"));
                     TableCustomer.setItems(CustomerList);
-//        SalesLead.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent event) {
-//                LocalDate now=LocalDate.now();
-//
-//                    try {
-//                        // ket noi database
-//                        PreparedStatement ps = con.prepareStatement("SELECT * FROM [customer] Where iduser=? AND creationdate BETWEEN ? AND ? ");
-//                        ps.setInt(1,LoginController.UserLogin.getId());
-//                        ps.setDate(2, Date.valueOf(now));
-//                        ps.setDate(3, Date.valueOf(now.minusDays(4)));
-//                        ResultSet rs =ps.executeQuery();
-//                        while (rs.next()){
-//                            CustomerList.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
-//                                    rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
-//                                    rs.getString("phonenumber"),rs.getDate("creationdate")));
-//                        }
-//                    }catch (Exception ex) {
-//                        JOptionPane.showMessageDialog(null, ex);
-//                }
-//                    TableCustomer.setItems(CustomerList);
-//            }
-//        });
         //Menu Account
         EditAccount.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -161,6 +138,7 @@ public class CustomerController  implements Initializable {
                     Stage ChangeCustomer = new Stage();
                     Parent root = FXMLLoader.load(getClass().getResource("ChangeCustomer.fxml"));
                     Scene scene = new Scene(root);
+                    ChangeCustomer.setTitle("GoodFriend");
                     ChangeCustomer.setResizable(false);
                     ChangeCustomer.setScene(scene);
                     ChangeCustomer.show();
@@ -184,6 +162,7 @@ public class CustomerController  implements Initializable {
                     ChangeCustomer controller = loader.getController();
                     Customer selected = TableCustomer.getSelectionModel().getSelectedItem();
                     controller.SetCustomer(selected);
+                    stage.setTitle("GoodFriend");
                     stage.setScene(scene);
                     stage.show();
                     Menu.getScene().getWindow().hide();
@@ -210,14 +189,4 @@ public class CustomerController  implements Initializable {
         });
 
     }
-//    public void SetCustomer(ObservableList<Customer> customerList){
-//        IDCustomer.setCellValueFactory(new PropertyValueFactory<Customer,Integer>("ID"));
-//        NameCustomer.setCellValueFactory(new PropertyValueFactory<Customer,String>("FullName"));
-//        SexCustomer.setCellValueFactory(new PropertyValueFactory<Customer,String>("Sex"));
-//        Address.setCellValueFactory(new PropertyValueFactory<Customer,String>("address"));
-//        DateOfBirth.setCellValueFactory(new PropertyValueFactory<Customer,Date>("DateOfBirth"));
-//        Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
-//        CreationDate.setCellValueFactory(new PropertyValueFactory<Customer,Date>("CreationDate"));
-//        TableCustomer.setItems(CustomerList);
-//    }
 }
