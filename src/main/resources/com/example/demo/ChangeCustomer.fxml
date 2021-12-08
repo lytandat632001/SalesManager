@@ -32,7 +32,7 @@
                         <Image url="@../../../hinh/iconss8_user_64.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="FullName" prefHeight="26.0" prefWidth="243.0" promptText="Username" />
+                  <TextField fx:id="FullName" prefHeight="26.0" prefWidth="243.0" promptText="Fullname" />
                </children>
             </HBox>
             <HBox layoutX="100.0" layoutY="142.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-color: white; -fx-border-width: 0 0 2 0;">

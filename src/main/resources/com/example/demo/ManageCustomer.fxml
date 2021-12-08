@@ -27,7 +27,7 @@
       </TableView>
       <MenuButton fx:id="Account" layoutX="-1.0" mnemonicParsing="false" text="Account">
         <items>
-            <MenuItem fx:id="EditAccount" mnemonicParsing="false" text="Edit account" />
+            <MenuItem fx:id="EditAccount" mnemonicParsing="false" text="Manage account" />
             <MenuItem fx:id="LogOut" mnemonicParsing="false" text="Logout" />
             <MenuItem fx:id="Exit" mnemonicParsing="false" text="Exit" />
         </items>

@@ -111,12 +111,11 @@
                   <TextField fx:id="Phone" prefHeight="25.0" prefWidth="237.0" promptText="Phone" style="-fx-background-color: transparent;" />
                </children>
             </HBox>
-            <Button fx:id="Edit" layoutX="293.0" layoutY="348.0" mnemonicParsing="false" onAction="#ActionEdit" prefHeight="25.0" prefWidth="92.0" text="Edit Account" />
+            <Button fx:id="Edit" layoutX="274.0" layoutY="348.0" mnemonicParsing="false" onAction="#ActionEdit" prefHeight="25.0" prefWidth="92.0" text="Edit Account" />
             <Button fx:id="Back" layoutX="84.0" layoutY="348.0" mnemonicParsing="false" onAction="#ActionBack" prefHeight="25.0" prefWidth="92.0" text="Back Menu" />
-            <Button layoutX="190.0" layoutY="348.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="ListCustomer" />
          </children>
       </Pane>
-      <Label layoutX="269.0" layoutY="7.0" text="Add Customer" textFill="#d4b3b3">
+      <Label layoutX="279.0" layoutY="7.0" text="ACCOUNT" textFill="#d4b3b3">
          <font>
             <Font name="System Bold Italic" size="25.0" />
          </font>
@@ -130,7 +129,7 @@
       <MenuButton fx:id="MenuCustomer" layoutX="76.0" mnemonicParsing="false" text="Customer">
         <items>
           <MenuItem fx:id="CustomerList" mnemonicParsing="false" text="Customer list" />
-          <MenuItem fx:id="SalesLead" mnemonicParsing="false" text="Sales lead" />
+          <MenuItem fx:id="SalesLead" mnemonicParsing="false" text="Potiental Customer" />
         </items>
       </MenuButton>
    </children>
