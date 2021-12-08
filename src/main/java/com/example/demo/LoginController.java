@@ -38,7 +38,7 @@ public class LoginController{
 
             try {
                Connection con = ConnectSQL.ConnectDb(); // ket noi database
-                PreparedStatement ps = con.prepareStatement("SELECT * FROM [user] WHERE username =? AND password =?");
+                PreparedStatement ps = con.prepareStatement("select * from [user] where username=? and password=?");
                 ps.setString(1,UserName.getText());
                 ps.setString(2, PassWord.getText());
                 ResultSet rs = ps.executeQuery();

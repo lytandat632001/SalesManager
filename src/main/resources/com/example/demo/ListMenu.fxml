@@ -1,16 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuController">
+<AnchorPane onMouseClicked="#ActionExit" prefHeight="544.0" prefWidth="731.0" style="-fx-background-color: #CCFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.MenuController">
    <children>
-      <Button fx:id="Customer" layoutX="230.0" layoutY="52.0" mnemonicParsing="false" onAction="#ActionCustomer" prefHeight="29.0" prefWidth="130.0" text="Manage customer" />
-      <Button layoutX="230.0" layoutY="104.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="130.0" text="Manage staff" />
-      <Button layoutX="230.0" layoutY="155.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="130.0" text="Manage goods" />
-      <Button layoutX="230.0" layoutY="200.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="130.0" text="Manage warehouse" />
-      <Button fx:id="Account" layoutX="230.0" layoutY="245.0" mnemonicParsing="false" onAction="#ActionAccount" prefHeight="29.0" prefWidth="130.0" text="Manage account" />
-      <Button fx:id="LogOut" layoutX="72.0" layoutY="298.0" mnemonicParsing="false" onAction="#ActionLogOut" prefHeight="29.0" prefWidth="121.0" text="Logout" />
-      <Button fx:id="Exit" layoutX="378.0" layoutY="305.0" mnemonicParsing="false" onAction="#ActionExit" prefHeight="29.0" prefWidth="121.0" text="Exit" />
+      <Pane prefHeight="114.0" prefWidth="743.0" style="-fx-background-color: #33FFFF;">
+         <children>
+            <ImageView fitHeight="114.0" fitWidth="128.0" layoutX="109.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/gOOD%20FRIENDS%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="114.0" fitWidth="105.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/gOOD%20FRIENDS%20(2).png" />
+               </image>
+            </ImageView>
+            <Text layoutX="337.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Text>
+            <Hyperlink layoutX="408.0" layoutY="14.0" text="https://www.facebook.com/namlethanh2503/">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="295.0" layoutY="45.0" text="https://www.facebook.com/profile.php?id=100014733917879">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+      <Pane layoutX="12.0" layoutY="188.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #6699FF;">
+         <children>
+            <Button fx:id="Customer" layoutY="24.0" mnemonicParsing="false" onAction="#ActionCustomer" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Manage customer">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="74.0" fitWidth="63.0" layoutX="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_people_64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="552.0" layoutY="188.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #6666FF;">
+         <children>
+            <Button fx:id="Goods" layoutY="24.0" mnemonicParsing="false" onAction="#ActionWareGoods" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Manage goods" />
+            <ImageView fitHeight="63.0" fitWidth="79.0" layoutX="59.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_shopping_64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="192.0" layoutY="188.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #66CCFF;">
+         <children>
+            <Button fx:id="Account" layoutY="24.0" mnemonicParsing="false" onAction="#ActionAccount" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Manage account" />
+            <ImageView fitHeight="63.0" fitWidth="79.0" layoutX="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_test_account_64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="372.0" layoutY="188.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #3399FF;">
+         <children>
+            <Button fx:id="Warehouse" layoutY="24.0" mnemonicParsing="false" onAction="#ActionWarehouse" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Manage warehouse" />
+            <ImageView fitHeight="63.0" fitWidth="79.0" layoutX="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_warehouse_64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="192.0" layoutY="335.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #66CCFF;">
+         <children>
+            <Button fx:id="ManageStaff" layoutY="24.0" mnemonicParsing="false" onAction="#ActionManageStaff" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Manage Staff" />
+            <ImageView fitHeight="63.0" fitWidth="79.0" layoutX="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_pessssople_64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="12.0" layoutY="335.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #6699FF;">
+         <children>
+            <Button fx:id="Statistical" layoutY="24.0" mnemonicParsing="false" onAction="#ActionStatistical" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Statistical" />
+            <ImageView fitHeight="63.0" fitWidth="79.0" layoutX="59.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_receipt_64.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="552.0" layoutY="335.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #6666FF;">
+         <children>
+            <ImageView fitHeight="74.0" fitWidth="63.0" layoutX="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_Close_64.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="Exit" layoutY="24.0" mnemonicParsing="false" onAction="#ActionExit" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Exit" />
+         </children>
+      </Pane>
+      <Pane layoutX="372.0" layoutY="335.0" prefHeight="137.0" prefWidth="180.0" style="-fx-background-color: #3399FF;">
+         <children>
+            <ImageView fitHeight="63.0" fitWidth="79.0" layoutX="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../hinh/icons8_sign_out_64.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="LogOut" layoutY="24.0" mnemonicParsing="false" onAction="#ActionLogOut" prefHeight="114.0" prefWidth="180.0" style="-fx-background-color: transparent;" text="Logout" />
+         </children>
+      </Pane>
+      <Text layoutX="231.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="𝓛𝓘𝓢𝓣 𝓜𝓔𝓝𝓤">
+         <font>
+            <Font name="Eras Bold ITC" size="47.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

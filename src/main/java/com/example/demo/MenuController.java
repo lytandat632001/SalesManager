@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.text.MessageFormat;
 
 public class MenuController {
 
@@ -55,5 +57,27 @@ public class MenuController {
     public void ActionExit(ActionEvent actionEvent)throws IOException{
         Platform.exit();
     }
+    public void ActionWarehouse(ActionEvent actionEvent)throws IOException{
+        String Title="Đang trong quá trình phát triển";
+        String Content="Vui lòng Thử lại sau";
+        FunctionLoad.AlertProgram(Title,Content);
+    }
 
+    public void ActionWareGoods(ActionEvent actionEvent)throws IOException{
+        String Title="Đang trong quá trình phát triển";
+        String Content="Vui lòng Thử lại sau";
+        FunctionLoad.AlertProgram(Title,Content);
+    }
+
+    public void ActionStatistical(ActionEvent actionEvent)throws IOException {
+        String Title = "Đang trong quá trình phát triển";
+        String Content = "Vui lòng Thử lại sau";
+        FunctionLoad.AlertProgram(Title, Content);
+    }
+
+    public void ActionManageStaff(ActionEvent actionEvent)throws IOException {
+        String Title = "Đang trong quá trình phát triển";
+        String Content = "Vui lòng Thử lại sau";
+        FunctionLoad.AlertProgram(Title, Content);
+    }
 }

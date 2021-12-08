@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="salesdb@BKS10032020" uuid="f06d6bfc-4ae9-45ef-b078-b2f93a3c1c0d">
+    <data-source source="LOCAL" name="salesdb@DESKTOP-R7D0G5A" uuid="548aa3bf-5850-460f-98cb-c492f20d8847">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://BKS10032020\SQLEXPRESS:1433;database=salesdb</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://DESKTOP-R7D0G5A:1433;database=salesdb</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

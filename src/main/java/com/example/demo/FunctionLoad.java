@@ -35,7 +35,7 @@ public class FunctionLoad {
     }
     public  static Date BeforeNow(){
         LocalDate now= LocalDate.now();
-        LocalDate BeforeNow = now.minusDays(17);
+        LocalDate BeforeNow = now.minusDays(30);
         return Date.valueOf(BeforeNow);
     }
 }
