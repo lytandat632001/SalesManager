@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
@@ -23,36 +25,40 @@
             <TableColumn fx:id="CreationDate" prefWidth="76.0" text="Creation" />
         </columns>
       </TableView>
-      <Label layoutX="190.0" layoutY="39.0" text="Manage Customer">
-         <font>
-            <Font size="20.0" />
-         </font></Label>
-      <MenuButton fx:id="Account" mnemonicParsing="false" text="Account">
+      <MenuButton fx:id="Account" layoutX="-1.0" mnemonicParsing="false" text="Account">
         <items>
             <MenuItem fx:id="EditAccount" mnemonicParsing="false" text="Edit account" />
             <MenuItem fx:id="LogOut" mnemonicParsing="false" text="Logout" />
             <MenuItem fx:id="Exit" mnemonicParsing="false" text="Exit" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="Menu" layoutX="96.0" mnemonicParsing="false" text="Customer">
+      <MenuButton fx:id="Menu" layoutX="99.0" mnemonicParsing="false" text="Customer">
          <items>
-            <MenuItem fx:id="SalesLead" mnemonicParsing="false" text="Sales lead" />
+            <MenuItem fx:id="CustomersList" mnemonicParsing="false" text="Customers list" />
+            <MenuItem fx:id="PotentialCustomers" mnemonicParsing="false" text="Potential customers" />
             <MenuItem fx:id="AddCustomer" mnemonicParsing="false" text="Add customer" />
             <MenuItem fx:id="EditCustomer" mnemonicParsing="false" text="Edit customer" />
             <MenuItem fx:id="RemoveCustomer" mnemonicParsing="false" text="Remove customer" />
          </items>
       </MenuButton>
-      <MenuButton layoutX="204.0" mnemonicParsing="false" text="Goods">
+      <MenuButton layoutX="209.0" mnemonicParsing="false" text="Goods">
          <items>
             <MenuItem mnemonicParsing="false" text="Goods list" />
             <MenuItem mnemonicParsing="false" text="Edit goods" />
          </items>
       </MenuButton>
-      <MenuButton layoutX="300.0" mnemonicParsing="false" text="Staff">
+      <MenuButton layoutX="303.0" mnemonicParsing="false" text="Staff">
          <items>
             <MenuItem mnemonicParsing="false" text="Staff list" />
             <MenuItem mnemonicParsing="false" text="Timekeeping" />
          </items>
       </MenuButton>
+      <Button fx:id="Search" layoutX="385.0" layoutY="45.0" mnemonicParsing="false" onAction="#ActionSearch" text="Search" textAlignment="CENTER" AnchorPane.topAnchor="45.0" />
+      <TextField fx:id="IDSearch" layoutX="126.0" layoutY="45.0" prefHeight="25.0" prefWidth="57.0" promptText="Code" AnchorPane.topAnchor="45.0" />
+      <TextField fx:id="NameSearch" layoutX="209.0" layoutY="45.0" promptText="Customer name" AnchorPane.topAnchor="45.0" />
+      <Label layoutX="5.0" layoutY="47.0" text="Search Customers">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </AnchorPane>

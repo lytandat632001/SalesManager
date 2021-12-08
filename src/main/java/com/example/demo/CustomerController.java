@@ -9,11 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -31,7 +29,7 @@ public class CustomerController  implements Initializable {
     @FXML
     private MenuItem RemoveCustomer;
     @FXML
-    private MenuItem SalesLead;
+    private MenuItem PotentialCustomers;
     @FXML
     private TableView<Customer> TableCustomer;
     @FXML
@@ -57,10 +55,18 @@ public class CustomerController  implements Initializable {
     @FXML
     private MenuItem EditAccount;
     @FXML
+    private MenuItem CustomersList;
+    @FXML
     private TableColumn<Customer,Date> CreationDate;
     private ObservableList<Customer>CustomerList = FXCollections.observableArrayList();
     public User user = new User();
     Connection con = ConnectSQL.ConnectDb();
+    @FXML
+    private TextField IDSearch;
+    @FXML
+    private TextField NameSearch;
+    @FXML
+    private Button Search;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -85,6 +91,7 @@ public class CustomerController  implements Initializable {
                     Phone.setCellValueFactory(new PropertyValueFactory<Customer,String>("PhoneNumber"));
                     CreationDate.setCellValueFactory(new PropertyValueFactory<Customer,Date>("CreationDate"));
                     TableCustomer.setItems(CustomerList);
+
         //Menu Account
         EditAccount.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -130,6 +137,54 @@ public class CustomerController  implements Initializable {
             }
         });
         //Menu Customer
+        CustomersList.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    TableCustomer.getItems().removeAll(CustomerList);
+                    // ket noi database
+                    PreparedStatement ps = con.prepareStatement("SELECT * FROM [customer] Where iduser=?");
+                    ps.setInt(1,LoginController.UserLogin.getId());
+                    ResultSet rs =ps.executeQuery();
+                    while (rs.next()){
+                        CustomerList.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
+                                rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
+                                rs.getString("phonenumber"),rs.getDate("creationdate")));
+                    }
+                }catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+
+                }
+                TableCustomer.setItems(CustomerList);
+            }
+        });
+        PotentialCustomers.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println(FunctionLoad.BeforeNow());
+                System.out.println(FunctionLoad.now());
+                TableCustomer.getItems().removeAll(CustomerList);
+                ObservableList<Customer>PontialCustomersList = FXCollections.observableArrayList();
+                try {
+                    PreparedStatement ps = con.prepareStatement("SELECT * FROM customer where iduser =? AND creationdate between ? AND ?");
+                    ps.setInt(1,LoginController.UserLogin.getId());
+                    ps.setDate(2,FunctionLoad.BeforeNow());
+                    ps.setDate(3,FunctionLoad.now());
+                    ResultSet rs= ps.executeQuery();
+                    while (rs.next()){
+                        PontialCustomersList.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
+                                rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
+                                rs.getString("phonenumber"),rs.getDate("creationdate")));
+                    }
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+
+                }
+
+                TableCustomer.setItems(PontialCustomersList);
+
+            }
+        });
         AddCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -146,7 +201,6 @@ public class CustomerController  implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                
             }
         });
         EditCustomer.setOnAction(new EventHandler<ActionEvent>(){
@@ -187,6 +241,55 @@ public class CustomerController  implements Initializable {
                 }
             }
         });
+
+
+    }
+
+    public void ActionSearch(ActionEvent actionEvent)throws IOException{
+        TableCustomer.getItems().removeAll(CustomerList);
+        ObservableList<Customer>CustomerSearch = FXCollections.observableArrayList();
+        if(!(IDSearch.getText().equalsIgnoreCase("") &&
+                NameSearch.getText().equalsIgnoreCase(""))){
+            try {
+                String NameFormat = "%"+NameSearch.getText()+"%";
+                PreparedStatement ps;
+                ResultSet rs;
+                int query=!IDSearch.getText().equalsIgnoreCase("")&&NameSearch.getText().equalsIgnoreCase("")?1:
+                        IDSearch.getText().equalsIgnoreCase("")&& !NameSearch.getText().equalsIgnoreCase("")?2:3;
+                switch (query){
+                    case 1:ps=con.prepareStatement("SELECT * FROM [customer] Where iduser=? AND idcustomer=?");
+                    ps.setInt(1,LoginController.UserLogin.getId());
+                    ps.setInt(2, Integer.parseInt(IDSearch.getText()));
+
+                    break;
+                    case 2:ps=con.prepareStatement("SELECT * FROM [customer] Where iduser=? AND fullname LIKE ? ");
+                        ps.setInt(1,LoginController.UserLogin.getId());
+                        ps.setString(2,NameFormat);
+                        break;
+                    default: ps=con.prepareStatement("SELECT * FROM [customer] Where iduser=? AND idcustomer=? AND fullname LIKE ?");
+                        ps.setInt(1,LoginController.UserLogin.getId());
+                        ps.setInt(2, Integer.parseInt(IDSearch.getText()));
+                        ps.setString(3,NameFormat);
+                        break;
+                }
+                rs= ps.executeQuery();
+                while (rs.next()){
+                    CustomerSearch.add(new Customer(rs.getInt("idcustomer"), rs.getString("fullname"),
+                            rs.getString("sex"), rs.getString("address"),rs.getDate("dateofbirth"),
+                            rs.getString("phonenumber"),rs.getDate("creationdate")));
+                }
+            }catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex);
+
+            }
+
+            TableCustomer.setItems(CustomerSearch);
+        }else {
+            String Title="Tìm kiếm thông tin khách hàng thất bài";
+            String Content="Vui lòng điền thông tin  tìm kiếm!";
+            FunctionLoad.AlertProgram(Title,Content);
+        }
+
 
     }
 }

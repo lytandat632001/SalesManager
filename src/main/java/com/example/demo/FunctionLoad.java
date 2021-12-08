@@ -2,6 +2,7 @@ package com.example.demo;
 import javafx.scene.control.Alert;
 
 import java.sql.Date;
+import java.text.DateFormat;
 import java.time.LocalDate;
 
 public class FunctionLoad {
@@ -31,5 +32,10 @@ public class FunctionLoad {
         alert.setTitle(Title);
         alert.setContentText(Content);
         alert.show();
+    }
+    public  static Date BeforeNow(){
+        LocalDate now= LocalDate.now();
+        LocalDate BeforeNow = now.minusDays(17);
+        return Date.valueOf(BeforeNow);
     }
 }
