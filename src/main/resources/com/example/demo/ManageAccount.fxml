@@ -7,43 +7,131 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ManageAccount">
+<AnchorPane prefHeight="465.0" prefWidth="669.0" style="-fx-background-color: #555555;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ManageAccount">
    <children>
-      <Label layoutX="255.0" layoutY="43.0" text="Manage Account" />
-      <Label layoutX="115.0" layoutY="90.0" text="Username" AnchorPane.leftAnchor="100.0" />
-      <Label layoutX="118.0" layoutY="125.0" text="Fullname" AnchorPane.leftAnchor="100.0" />
-      <Label layoutX="129.0" layoutY="160.0" text="Sex" AnchorPane.leftAnchor="100.0" />
-      <Label layoutX="103.0" layoutY="230.0" text="Address" AnchorPane.leftAnchor="103.0" />
-      <Label layoutX="102.0" layoutY="265.0" text="Phone" AnchorPane.leftAnchor="102.0" />
-      <Label layoutX="98.0" layoutY="300.0" text="Creation date" AnchorPane.leftAnchor="98.0" />
-      <TextField fx:id="UserName" editable="false" layoutX="233.0" layoutY="86.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="FullName" layoutX="233.0" layoutY="121.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="DateOfBirth" layoutX="233.0" layoutY="188.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="Address" layoutX="233.0" layoutY="226.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <TextField fx:id="Phone" layoutX="233.0" layoutY="261.0" prefHeight="25.0" prefWidth="237.0" AnchorPane.rightAnchor="130.0" />
-      <RadioButton fx:id="Male" layoutX="233.0" layoutY="160.0" mnemonicParsing="false" selected="true" text="Male">
-         <toggleGroup>
-            <ToggleGroup fx:id="Sex" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="Female" layoutX="345.0" layoutY="160.0" mnemonicParsing="false" text="Female" toggleGroup="$Sex" />
-      <Button fx:id="Edit" layoutX="387.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionEdit" text="Edit Account" />
-      <Button fx:id="Back" layoutX="233.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionBack" text="Back Menu" />
+      <Pane layoutX="118.0" layoutY="53.0" opacity="0.94" prefHeight="401.0" prefWidth="443.0" style="-fx-background-radius: 20px; -fx-background-color: #ffffff70;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <HBox layoutX="95.0" layoutY="17.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-color: white; -fx-border-width: 0 0 2 0;">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/icons8_test_account_64.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="UserName" prefHeight="25.0" prefWidth="237.0" promptText="UserName" style="-fx-background-color: transparent;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox layoutX="95.0" layoutY="58.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-color: white; -fx-border-width: 0 0 2 0;">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/iconss8_user_64.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="FullName" prefHeight="26.0" prefWidth="266.0" promptText="FullName" style="-fx-background-color: transparent;" />
+               </children>
+            </HBox>
+            <HBox layoutX="93.0" layoutY="142.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-color: white; -fx-border-width: 0 0 2 0;">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/icons8_today_64.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="DateOfBirth" prefHeight="25.0" prefWidth="237.0" promptText="Date of birth" style="-fx-background-color: transparent;" />
+               </children>
+            </HBox>
+            <HBox layoutX="-86.0" layoutY="200.0" prefHeight="29.0" prefWidth="200.0" />
+            <HBox layoutX="95.0" layoutY="229.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-color: white; -fx-border-width: 0 0 2 0;">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/icons8_calendar_6_64.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="CreationDate" editable="false" prefHeight="25.0" prefWidth="237.0" promptText="Creation date" style="-fx-background-color: transparent;" />
+               </children>
+            </HBox>
+            <Pane layoutX="114.0" layoutY="88.0" prefHeight="61.0" prefWidth="112.0">
+               <children>
+                  <RadioButton fx:id="Male" layoutX="52.0" layoutY="20.0" mnemonicParsing="false" selected="true" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Sex" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/icons8_man_64.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="245.0" layoutY="88.0" prefHeight="61.0" prefWidth="121.0">
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="7.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/icons8_woman_office_worker_64.png" />
+                     </image>
+                  </ImageView>
+                  <RadioButton fx:id="Female" layoutX="47.0" layoutY="20.0" mnemonicParsing="false" text="Female" toggleGroup="$Sex" />
+               </children>
+            </Pane>
+            <HBox layoutX="95.0" layoutY="186.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-color: white; -fx-border-width: 0 0 2 0;">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/icons8_google_maps_64.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="Address" prefHeight="25.0" prefWidth="237.0" promptText="Address" style="-fx-background-color: transparent;" />
+               </children>
+            </HBox>
+            <HBox layoutX="95.0" layoutY="278.0" prefHeight="26.0" prefWidth="266.0" style="-fx-border-color: white; -fx-border-width: 0 0 2 0;">
+               <children>
+                  <ImageView fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../hinh/icons8_phone_64.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="Phone" prefHeight="25.0" prefWidth="237.0" promptText="Phone" style="-fx-background-color: transparent;" />
+               </children>
+            </HBox>
+            <Button fx:id="Edit" layoutX="293.0" layoutY="348.0" mnemonicParsing="false" onAction="#ActionEdit" prefHeight="25.0" prefWidth="92.0" text="Edit Account" />
+            <Button fx:id="Back" layoutX="84.0" layoutY="348.0" mnemonicParsing="false" onAction="#ActionBack" prefHeight="25.0" prefWidth="92.0" text="Back Menu" />
+            <Button layoutX="190.0" layoutY="348.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="ListCustomer" />
+         </children>
+      </Pane>
+      <Label layoutX="269.0" layoutY="7.0" text="Add Customer" textFill="#d4b3b3">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
       <MenuButton fx:id="MenuAccount" mnemonicParsing="false" text="Account">
         <items>
           <MenuItem fx:id="LogOut" mnemonicParsing="false" text="Logout" />
             <MenuItem fx:id="Exit" mnemonicParsing="false" text="Exit" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="MenuCustomer" layoutX="101.0" mnemonicParsing="false" text="Customer">
+      <MenuButton fx:id="MenuCustomer" layoutX="76.0" mnemonicParsing="false" text="Customer">
         <items>
           <MenuItem fx:id="CustomerList" mnemonicParsing="false" text="Customer list" />
           <MenuItem fx:id="SalesLead" mnemonicParsing="false" text="Sales lead" />
         </items>
       </MenuButton>
-      <TextField fx:id="CreationDate" editable="false" layoutX="233.0" layoutY="296.0" prefHeight="25.0" prefWidth="237.0" />
-      <Label layoutX="91.0" layoutY="195.0" text="Date of birth" AnchorPane.leftAnchor="100.0" />
    </children>
 </AnchorPane>

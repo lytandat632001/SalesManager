@@ -67,6 +67,8 @@ public class CustomerController  implements Initializable {
     private TextField NameSearch;
     @FXML
     private Button Search;
+    @FXML
+    private Button BackMenu;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -290,6 +292,17 @@ public class CustomerController  implements Initializable {
             FunctionLoad.AlertProgram(Title,Content);
         }
 
+
+    }
+    public void ActionBackMenu (ActionEvent event) throws IOException {
+        BackMenu.getScene().getWindow().hide();
+        Stage Resigter = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("ListMenu.fxml"));
+        Scene scene = new Scene(root);
+        Resigter.setTitle("GoodFriend");
+        Resigter.setResizable(false);
+        Resigter.setScene(scene);
+        Resigter.show();
 
     }
 }

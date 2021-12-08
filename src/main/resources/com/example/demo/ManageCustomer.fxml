@@ -60,5 +60,6 @@
          <font>
             <Font size="14.0" />
          </font></Label>
+      <Button fx:id="BackMenu" layoutX="385.0" mnemonicParsing="false" onAction="#ActionBackMenu" text="BackMenu" />
    </children>
 </AnchorPane>

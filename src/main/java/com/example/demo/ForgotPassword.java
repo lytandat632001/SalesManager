@@ -42,14 +42,15 @@ public class ForgotPassword {
                     psUpdate.setString(2,UserName.getText());
                     psUpdate.setString(3,SecretQuestion.getText());
                     psUpdate.executeUpdate();
-                    Reset.getScene().getWindow().hide();
-                    Stage Login = new Stage();
-                    Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-                    Scene scene = new Scene(root);
-                    Login.setTitle("GoodFriend");
-                    Login.setResizable(false);
-                    Login.setScene(scene);
-                    Login.show();
+                    String Title="Khôi phục thành công";
+                    String Content="Chúc mừng bạn đã lấy lại được tài khoản!";
+                    FunctionLoad.AlertSuccess(Title,Content);
+//                    Stage Login = new Stage();
+//                    Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+//                    Scene scene = new Scene(root);
+//                    Login.setTitle("GoodFriend");//                    Login.setResizable(false);
+//                    Login.setScene(scene);
+//                    Login.show();
                 }
                 else{
                     String Title="Khôi phục mật khẩu thất bại";

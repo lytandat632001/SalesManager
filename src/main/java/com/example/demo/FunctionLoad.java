@@ -38,4 +38,10 @@ public class FunctionLoad {
         LocalDate BeforeNow = now.minusDays(30);
         return Date.valueOf(BeforeNow);
     }
+    public static void AlertSuccess(String Title, String Content){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(Title);
+        alert.setContentText(Content);
+        alert.show();
+    }
 }
